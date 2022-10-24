@@ -1,0 +1,58 @@
+.close-wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.socials{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.socials .theme_btn{
+    width: 200px;
+    margin: 0 0 10px 0 !important;
+    text-align: center;
+    font-size: 18px;
+}
+
+.socials .theme_btn:hover{
+    z-index: 99;
+    scale: 1.1;
+}
+
+.socials i{
+    margin-right: 5px;
+}
+
+.theme_btn_facebook, .theme_btn_facebook:hover{
+    background-color: #3b5998;
+}
+
+.theme_btn_viber, .theme_btn_viber:hover{
+    background-color: #59267C;
+}
+
+.theme_btn_email, .theme_btn_email:hover{
+    background-color: #BB001B;
+}
+
+.socials #socialsEmailInput{
+    width: 200px;
+}
+
+.btn-send-email{
+    background-color: #ff5e10;
+    color: white;
+}
+
+.form-email{
+    width: 200px;
+}
+
+.btn-send-email:hover{
+    background-color: #09316f;
+    color: white;
+}

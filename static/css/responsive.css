@@ -1,0 +1,309 @@
+/* XL Device :1200px. */
+@media (min-width: 1200px) and (max-width: 1500px) {
+
+
+}
+
+/* LG Device :992px. */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .slide-img {
+        position: absolute;
+        bottom: -15%;
+        right: 10%;
+    }
+
+
+}
+
+ 
+/* MD Device :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+ 
+/* MD Device Max :991px. */
+@media only screen and (max-width: 991px) {
+    .header-menu-two .mean-container a.meanmenu-reveal {
+        top: 5px !important;
+    }
+    .header-menu-two#sticky-nav {
+        background: transparent;
+    }
+    .header-two #sticky-nav-sticky-wrapper {
+        height: auto !important;
+    }    
+    #sticky-nav {
+        padding-bottom: 0;
+    }
+    .main-menu nav li {
+        padding: 2px 0px;
+    }
+    .main-menu nav li a {
+        padding-left: 0px;
+    }
+    .navbar-nav {
+        margin-top: 20px;
+        text-align: center;
+    }
+    button.navbar-toggler {
+        border: 1px solid #222;
+        border-radius: 0;
+    }
+    .mean-container .mean-nav ul li a, .mean-container .mean-nav ul li li a {
+        font-size: 14px;
+        padding: 3px 25px;
+    }
+    .mean-container .mean-nav ul li li a {
+        padding-left: 40px;
+    }
+    .top-header {
+        padding: 10px 15px;
+    }
+    .follow-icons a {
+        margin-top: 10px;
+    }
+    .fq-ask-banner {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+    .single-hero-slide {
+        height: auto;
+        padding: 120px 0px;
+    }
+    .footer-bootm {
+        text-align: center;
+    }
+    .single-sidebar-widgets {
+        margin-top: 60px;
+        margin-bottom: 0px;
+    }
+    .page-banner-wrap {
+        height: 300px;
+    }
+    .page-banner h2 {
+        font-size: 50px; 
+    }
+    .video-section-img {
+        margin-top: 60px;
+    }
+    .top-header span {
+        font-size: 15px;
+        margin-right: 20px;
+    }
+    .social-profile ul li a {
+        margin-left: 10px;
+    }
+    .call-to-video {
+        margin-top: 60px;
+    }
+    .single-footer-widget {
+        margin-top: 40px;
+    }   
+    .single-contact-details {
+        margin-bottom: 30px;
+    }    
+    button.btn-send {
+        padding: 0 50px;
+    }
+    .header-menu-two button {
+        position: absolute;
+        right: 15px;
+        top: -55px;
+    }
+    .video-section-wrap {
+        height: auto;
+        padding: 120px 0px;
+    }    
+    .video-buttton {
+        margin-bottom: 100px;
+    }    
+    .header-one div .mean-container .mean-bar {
+        padding: 0px;
+    }
+    .header-one .mean-container .mean-nav ul li a, .header-one .mean-container .mean-nav ul li ul li a {
+        font-size: 13px;
+        padding: 2px 25px;
+    }
+    .header-one .mean-container .mean-nav ul li {
+        padding: 0px;
+    }
+    .header-one .mean-container .mean-nav ul li ul li a {
+        padding-left: 40px;
+    }
+    .theme-heading h2 {
+        font-size: 36px;
+    }
+    h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    h3 {
+        font-size: 24px; 
+    }
+    .contact-section {
+        background: #ff5e10;
+    }
+    .footer-section {
+        padding-top: 120px;
+    }    
+    #scrollUp {
+        font-size: 16px;
+        height: 30px;
+        line-height: 33px;
+        width: 30px;
+        bottom: 50px;
+    }
+    .product-gallery-slide {
+        margin-bottom: 80px;
+    }
+    .single-product-slide {
+        padding: 0;
+        border: none;
+    }
+    .single-top-product-details h1 {
+        font-size: 32px;
+        font-weight: 500;
+    }   
+    .header-menu-two {
+        background: transparent;
+    } 
+    .site-logo {
+        position: absolute;
+    }
+    .contact-sec-bg::before {
+        display: none;
+    }
+    header.header-two {
+        padding-top: 20px;
+    }  
+    .service-left-content {
+        margin-top: 60px;
+    }   
+    .portfolio-single-content h3 {
+        font-size: 22px;
+    }   
+}
+ 
+/* Mobile Device :767px. */
+@media only screen and (max-width: 767px) {
+    .project-info {
+        margin-top: 60px;
+    }    
+    .our-services {
+        padding: 80px 0px 40px;
+    }
+    .main-menu.pl-75.pr-75.pt-30.pb-30 {
+        padding: 0px;
+        padding-top: 30px;
+    }   
+    .top-header {
+        padding: 10px 15px;
+    }
+    .section-padding {
+        padding: 80px 0px;
+    }
+    .theme-heading h2 {
+        font-size: 28px;
+    }        
+    h1 {
+        font-size: 36px;
+        line-height: 1;
+    }
+    h2 {
+        font-size: 24px;
+        line-height: 1.2;
+    }
+    h3 {
+        font-size: 20px;
+        line-height: 1;
+    }
+    p {
+        line-height: 24px;
+        font-size: 15px;
+    }
+    .theme-heading span {
+        font-size: 12px;
+    }
+    .footer-section {
+        padding-top: 40px;
+        margin-top: 0px;
+    } 
+    .contact-info-bg {
+        padding: 41px 15px 80px;
+    }
+    .single-contact-info {
+        margin-top: 30px;
+    }    
+    .single-blog-box {
+        padding: 0px 15px;
+    }
+    .video-section-wrap .video-bg {
+        display: none;
+    }
+    .video-section-content h2 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+    .theme_btn {
+        padding: 6px 30px;
+        font-size: 13px;
+    }
+    .portfolio-filter-buttons button {
+        margin-top: 20px;
+        font-size: 14px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0px 20px;
+    }
+    .features-box-items {
+        margin-top: 0;
+        padding: 80px 0px;
+    }
+    .video-section-wrap {
+        height: auto;
+        padding-top: 50px;
+        padding-bottom: 80px;
+    }
+    .video-buttton {
+        margin-bottom: 60px;
+        margin-top: 30px;
+    }
+    .call-to-form form input {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .call-to-form {
+        margin-bottom: 60px;
+    }
+    .single-hero-slide h2 {
+        margin-bottom: 20px;
+    }
+    .slider-home-two .single-hero-slide, .hero-slide-active .single-hero-slide, .page-banner-wrap {
+        height: auto;
+    }
+    .funfact-countup h1 {
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+    .fact-img {
+        bottom: 0;
+    }
+    .top-header, .slide-img, .top-bar-two { display: none; }
+    .page-banner-wrap {
+        padding: 80px 0px;
+    }
+    .page-banner h2, .single-hero-slide h2 {
+        font-size: 30px;
+    }
+    .footer-menu {
+        margin-top: 15px;
+    }
+
+
+
+}
+/* SM Small Device :550px. */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+
+ 
+}

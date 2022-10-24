@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block title %}Prostar - Page Not Found{% endblock%} {% block header %}
+<style>
+	.error-wrapper {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+{% endblock %} {% block body %}
+<section class="page-banner-wrap bg-contain bg-bottom" style="background-image: url('../static/img/page_banner_bg.png')">
+	<div class="error-wrapper">
+		<div>
+			<h1>ПОМИЛКА 404</h1>
+			<p>Ви намагаєтеся зайти на неіснуючу сторінку</p>
+			<a href="/" class="theme_btn">НА ГОЛОВНУ</a>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

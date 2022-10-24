@@ -1,0 +1,21 @@
+.form-wrapper{
+    padding: 10px;
+    height: 100%;
+}
+
+.poster-img{
+    margin: 0 10px 10px 0;
+    padding: 15px;
+    background-color: white;
+    width: 100%;
+    height: auto;
+}
+
+.btn-submit{
+    width: 300px;
+    height: 55px;
+    float: right;
+    position: sticky;
+    right: 0;
+    bottom: 0;
+}

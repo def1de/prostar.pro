@@ -1,0 +1,32 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static',filename='css/admn/vacancies.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="vacancie-hero">
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">Дії</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for el in data %}
+        <tr>
+            <th scope="row">{{ el.id }}</th>
+            <td>{{ el.email }}</td>
+            <td>
+                <div class="edit">
+                    <a class="text-danger hidden-link" href="/admin/emails/{{ el.id }}/delete"><i class='bx bx-trash'></i></a>  
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
