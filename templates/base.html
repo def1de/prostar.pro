@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- ========== Meta Tags ========== -->
     <meta charset="UTF-8">
@@ -8,7 +9,7 @@
 
     <!-- ======== Page title ============ -->
     <title>{% block title %}{% endblock %}</title>
-    
+
     <!-- ========== Favicon Icon ========== -->
     <link rel="shortcut icon" href="{{ url_for('static',filename='img/favicon.png') }}">
 
@@ -22,7 +23,7 @@
     <!--  owl carosuel css plugins -->
     <link rel="stylesheet" href="{{ url_for('static',filename='css/owl.carousel.min.css') }}">
     <!-- meanmenu css file -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/meanmenu.min.css') }}">    
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/meanmenu.min.css') }}">
     <!--  owl theme css plugins -->
     <link rel="stylesheet" href="{{ url_for('static',filename='css/owl.theme.css') }}">
     <!--  Bootstrap css plugins -->
@@ -45,23 +46,23 @@
 </head>
 
 <body>
-    
+
     <!-- preloader element started -->
     <div class="pre-loader">
         <div class="sk-cube-grid">
-          <div class="sk-cube sk-cube1"></div>
-          <div class="sk-cube sk-cube2"></div>
-          <div class="sk-cube sk-cube3"></div>
-          <div class="sk-cube sk-cube4"></div>
-          <div class="sk-cube sk-cube5"></div>
-          <div class="sk-cube sk-cube6"></div>
-          <div class="sk-cube sk-cube7"></div>
-          <div class="sk-cube sk-cube8"></div>
-          <div class="sk-cube sk-cube9"></div>
+            <div class="sk-cube sk-cube1"></div>
+            <div class="sk-cube sk-cube2"></div>
+            <div class="sk-cube sk-cube3"></div>
+            <div class="sk-cube sk-cube4"></div>
+            <div class="sk-cube sk-cube5"></div>
+            <div class="sk-cube sk-cube6"></div>
+            <div class="sk-cube sk-cube7"></div>
+            <div class="sk-cube sk-cube8"></div>
+            <div class="sk-cube sk-cube9"></div>
         </div>
     </div>
     <!-- preloader element end -->
-    
+
     <div class="main-wrapper">
 
         <!-- 
@@ -74,20 +75,21 @@
                 <div class="container-fluid">
                     <div class="row d-flex align-items-center">
                         <div class="col-lg-8 col-md-9 top-bar-left">
-                                <span class="dropdown-toggle" onclick="this.dropdown()" style="cursor: pointer;" data-toggle="dropdown">
-                                    <i class="fas fa-phone"></i> +38 098 015 0505
-                                </span>
-                                <div class="dropdown-menu">
-                                    <p class="dropdown-item" style="cursor: pointer;" title="Натисніть щоб скопіювати" onclick="copyNum('+380980150505')"><i class="fas fa-phone"></i> +38 098 015 0505</p></p>
-                                    <p class="dropdown-item" style="cursor: pointer;" title="Натисніть щоб скопіювати" onclick="copyNum('+380673980505')"><i class="fas fa-phone"></i> +38 067 398 0505</p>
-                                </div>
-                            <span><i class="fas fa-envelope"></i> prostar.kr@gmail.com</span>
+                            <a href="tel:{{phone}}"
+                                style="cursor: pointer; color: black; text-decoration: none; margin-right: 5px;">
+                                <i class="fas fa-phone"></i> Подзвонити Зараз
+                            </a>
+                            <a style="cursor: pointer; color: black; text-decoration: none;"
+                                href="mailto:prostar.kr@gmail.com"><i class="fas fa-envelope"></i>
+                                prostar.kr@gmail.com</a>
                         </div>
                         <div class="col-lg-4 col-md-3 text-md-right">
                             <div class="social-profile">
                                 <ul>
-                                    <li><a href="https://www.facebook.com/prostar.kr" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                                    <li><a href="https://invite.viber.com/?g2=AQBrp%2FrHB%2BvS3kw2iUyGapwi01l5XQDmRo7RhpqN08Zv5cM47Kf3tjoy8n4nO5S6" target="_blank"><i class="fab fa-viber"></i></a></li>
+                                    <li><a href="https://www.facebook.com/prostar.kr" target="_blank"><i
+                                                class="fab fa-facebook"></i></a></li>
+                                    <li><a href="https://invite.viber.com/?g2=AQBrp%2FrHB%2BvS3kw2iUyGapwi01l5XQDmRo7RhpqN08Zv5cM47Kf3tjoy8n4nO5S6"
+                                            target="_blank"><i class="fab fa-viber"></i></a></li>
                                     <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
                                 </ul>
                             </div>
@@ -100,16 +102,18 @@
                     <div class="row">
                         <div class="col-md-3 col-lg-2 d-flex">
                             <a class="navbar-brand logo" href="/">
-                                <img src="{{ url_for('static',filename='img/logo.png') }}" class="logo-display" alt="shipo">
-                            </a>                            
+                                <img src="{{ url_for('static',filename='img/logo.png') }}" class="logo-display"
+                                    alt="shipo">
+                            </a>
                         </div>
                         <div class="col-lg-10 col-md-9  d-none d-lg-block text-lg-right">
                             <nav id="responsive-menu" class="menu-style-one">
                                 <ul class="menu-items">
                                     <li><a href="/#">Головна</a></li>
+                                    <li><a href="/vacancies"><span>Вакансії</span></a></li>
+                                    <li><a href="/#">Клієнтам</a></li>
                                     <li><a href="/#whatwedo">Про Нас</a></li>
                                     <li><a href="/#service">Сервіси</a></li>
-                                    <li><a href="/vacancies">Вакансії</a></li>
                                     <!-- <li><a href="/#news">News</a></li> -->
                                     <li><a href="/contact">Зв'язатися</a></li>
                                 </ul>
@@ -117,7 +121,7 @@
                         </div>
                         <div class="col-12">
                             <div class="responsive-menu"></div>
-                        </div>                                                
+                        </div>
                     </div>
                 </div>
             </div>
@@ -165,8 +169,10 @@
                             <div class="contact-content">
                                 <h4>Слідкуйте у соц. мережах</h4>
                                 <div class="follow-icons">
-                                    <a href="https://www.facebook.com/prostar.kr" target="_blank"><i class="fab fa-facebook"></i></a>
-                                    <a href="https://invite.viber.com/?g2=AQBrp%2FrHB%2BvS3kw2iUyGapwi01l5XQDmRo7RhpqN08Zv5cM47Kf3tjoy8n4nO5S6" target="_blank"><i class="fab fa-viber"></i></a>
+                                    <a href="https://www.facebook.com/prostar.kr" target="_blank"><i
+                                            class="fab fa-facebook"></i></a>
+                                    <a href="https://invite.viber.com/?g2=AQBrp%2FrHB%2BvS3kw2iUyGapwi01l5XQDmRo7RhpqN08Zv5cM47Kf3tjoy8n4nO5S6"
+                                        target="_blank"><i class="fab fa-viber"></i></a>
                                     <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
                                 </div>
                             </div>
@@ -188,7 +194,6 @@
                     <div class="row d-flex align-self-center">
                         <div class="col-lg-6 col-md-6" style="display: flex; flex-direction: column;">
                             <span>Copyright ©2022 Prostar. All Rights Reserved</span>
-                            <span>Created by Illia Katerynych</span>
                         </div>
                         <div class="col-lg-6 col-md-6 text-lg-right" style="display: flex; align-items: center;">
                             <div class="footer-menu">
@@ -196,8 +201,10 @@
                                     <li><a href="/">Головна</a></li>
                                     <li><a href="/vacancies">Вакансії</a></li>
                                     <li><a href="/contact">Зв'язатися</a></li>
-                                    <li><a href="https://www.facebook.com/prostar.kr" target="_blank">Наш Facebook</a></li>
-                                    <li><a href="https://invite.viber.com/?g2=AQBrp%2FrHB%2BvS3kw2iUyGapwi01l5XQDmRo7RhpqN08Zv5cM47Kf3tjoy8n4nO5S6" target="_blank">Наш Viber</a></li>
+                                    <li><a href="https://www.facebook.com/prostar.kr" target="_blank">Наш Facebook</a>
+                                    </li>
+                                    <li><a href="https://invite.viber.com/?g2=AQBrp%2FrHB%2BvS3kw2iUyGapwi01l5XQDmRo7RhpqN08Zv5cM47Kf3tjoy8n4nO5S6"
+                                            target="_blank">Наш Viber</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -209,25 +216,41 @@
 
     </div>
 
+    <div class="phone-or-email">
+        <div class="email circle-btn" style="margin-bottom: 5px;">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <div class="phones">
+            <div class="phone circle-btn" style=" margin-right: 5px;">
+                <i class="far fa-comment-alt-lines"></i>
+            </div>
+            <div class="phones-other">
+                <div class="phone-call circle-btn"><i class="fas fa-phone-alt"></i></div>
+                <div class="phone-viber circle-btn"><i class="fab fa-viber"></i></div>
+                <div class="phone-whatsapp circle-btn"><i class="fab fa-whatsapp"></i></div>
+            </div>
+        </div>
+    </div>
+
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         {% for msg in messages %}
         <div class="toast" id="liveToast" role="alert" aria-live="assertive" aria-atomic="true">
-          <div class="toast-header">
-            <i class='bx bxs-bell-ring' style="margin-right: 5px;"></i>
-            <strong class="me-auto">Сповіщення</strong>
-            <small class="text-muted">Щойно</small>
-            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-          </div>
-          <div class="toast-body">
-            {{msg}}
-          </div>
+            <div class="toast-header">
+                <i class='bx bxs-bell-ring' style="margin-right: 5px;"></i>
+                <strong class="me-auto">Сповіщення</strong>
+                <small class="text-muted">Щойно</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                {{msg}}
+            </div>
         </div>
         {% endfor %}
-      </div>
-      {% endif %}
-      {% endwith %}
+    </div>
+    {% endif %}
+    {% endwith %}
 
 
     <!--  All JS Plugins
@@ -247,18 +270,18 @@
     <script src="{{ url_for('static',filename='js/meanmenu.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/equalheights.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/ajax-mail.js') }}"></script>
-    <script src="{{ url_for('static',filename='js/sticky.js') }}"></script>    
+    <script src="{{ url_for('static',filename='js/sticky.js') }}"></script>
     <script src="{{ url_for('static',filename='js/active.js') }}"></script>
     <script>
         window.onload = (event) => {
             let myAlert = document.querySelectorAll('.toast');
-            for(let i = 0; i<myAlert.length; i++){
+            for (let i = 0; i < myAlert.length; i++) {
                 let bsAlert = new bootstrap.Toast(myAlert[i]);
                 bsAlert.show();
             }
         }
 
-        let copyNum = function(number){
+        let copyNum = function (number) {
             let temp = $("<input>");
             $("body").append(temp);
             temp.val(number).select(); // $("#tel1").text()
@@ -269,4 +292,5 @@
     {% block script %}
     {% endblock %}
 </body>
+
 </html>

@@ -5,6 +5,7 @@ from flask_admin.contrib.sqla import ModelView
 from flask_login import UserMixin, LoginManager, current_user, login_required, login_user, logout_user
 import textwrap
 import time
+import random
 
 #<============== INIT ==============>
 
@@ -26,6 +27,7 @@ db = SQLAlchemy(app)
 login = LoginManager(app)
 login.login_view = "log_in"
 
+numbers = ("+380980150505", "+380673980505")
 
 #<============== TABLES ==============>
 
@@ -102,7 +104,9 @@ def index():
             flash('Ви підписалися на розсилку.')
         except: flash('Помилка. Спробуйте ще раз.')
         return redirect('/')
-    else: return render_template('index.html')
+    else:
+        phone = random.choice(numbers)
+        return render_template('index.html', phone=phone)
 
 @app.route('/contact', methods=["GET", "POST"])
 def contact():
@@ -115,18 +119,21 @@ def contact():
         db.session.commit()
         return redirect('/contact')
     else:
+        phone = random.choice(numbers)
         qid = request.args.get('vac', default = '', type = str)
         if qid != "": return render_template('contact.html', question = f"Питання щодо вакансії \"{Vacancies.query.get(int(qid)).title}\" ({qid})")
-        else: return render_template('contact.html', question = "")
+        else: return render_template('contact.html', question = "", phone=phone)
 
 @app.route('/vacancies')
 def vacancies():
-    return render_template('vacancies.html', data=Vacancies.query.order_by(Vacancies.id.desc()).all())
+    phone = random.choice(numbers)
+    return render_template('vacancies.html', data=Vacancies.query.order_by(Vacancies.id.desc()).all(), phone=phone)
 
 @app.route('/vacancies/<int:id>')
 def post(id):
     if Vacancies.query.get_or_404(id).isAvalible == True:
-        return render_template('single-vacancie.html', data=Vacancies.query.get(id), other_vac=Vacancies.query.limit(4))
+        phone = random.choice(numbers)
+        return render_template('single-vacancie.html', data=Vacancies.query.get(id), other_vac=Vacancies.query.limit(4), phone=phone)
     else: return abort(404)
 
 @app.route('/vacancies/<int:id>/load_image')

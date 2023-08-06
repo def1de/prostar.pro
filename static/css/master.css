@@ -1,58 +1,115 @@
-.close-wrapper{
+.close-wrapper {
     display: flex;
     justify-content: center;
     margin-top: 15px;
 }
 
-.socials{
+.socials {
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
 }
 
-.socials .theme_btn{
+.socials .theme_btn {
     width: 200px;
     margin: 0 0 10px 0 !important;
     text-align: center;
     font-size: 18px;
 }
 
-.socials .theme_btn:hover{
+.socials .theme_btn:hover {
     z-index: 99;
     scale: 1.1;
 }
 
-.socials i{
+.socials i {
     margin-right: 5px;
 }
 
-.theme_btn_facebook, .theme_btn_facebook:hover{
+.theme_btn_facebook,
+.theme_btn_facebook:hover {
     background-color: #3b5998;
 }
 
-.theme_btn_viber, .theme_btn_viber:hover{
+.theme_btn_viber,
+.theme_btn_viber:hover {
     background-color: #59267C;
 }
 
-.theme_btn_email, .theme_btn_email:hover{
+.theme_btn_email,
+.theme_btn_email:hover {
     background-color: #BB001B;
 }
 
-.socials #socialsEmailInput{
+.socials #socialsEmailInput {
     width: 200px;
 }
 
-.btn-send-email{
+.btn-send-email {
     background-color: #ff5e10;
     color: white;
 }
 
-.form-email{
+.form-email {
     width: 200px;
 }
 
-.btn-send-email:hover{
+.btn-send-email:hover {
     background-color: #09316f;
     color: white;
+}
+
+.phone-or-email {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 9999;
+}
+
+.circle-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #ff5e10;
+    box-shadow: 0 10px 20px 0 rgb(23 22 49 / 10%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+}
+
+.phones,
+.phones-other {
+    display: flex;
+}
+
+.phones-other {
+    gap: 5px;
+    /* display: none;
+    transition: .3s;
+    transform: translate(0, 100px); */
+}
+
+.phone-call {
+    transform: translate(0, 100px);
+    transition: .3s;
+}
+
+.phone-viber {
+    transform: translate(0, 100px);
+    transition: .5s;
+}
+
+.phone-whatsapp {
+    transform: translate(0, 100px);
+    transition: .7s;
+}
+
+.phones:hover .phone-call,
+.phones:hover .phone-viber,
+.phones:hover .phone-whatsapp {
+    /* display: flex; */
+    transform: translate(0, 0);
 }
