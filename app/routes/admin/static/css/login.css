@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed&display=swap');
+
+.hero{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E4E9F7;
+    flex-direction: column;
+}
+
+.form-wrapper{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.login-form{
+    width: 100%;
+    padding: 0 20px;
+}
+
+.btn-submit{
+    width: 100%;
+}
+
+.login-text{
+    font-family: 'Fira Sans Condensed', sans-serif;;
+}

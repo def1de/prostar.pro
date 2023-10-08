@@ -1,0 +1,44 @@
+{% extends 'admin_base.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('admin.static',filename='css/vacancies.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="vacancie-hero">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Час</th>
+                <th scope="col">Ім'я</th>
+                <th scope="col">Email</th>
+                <th scope="col">Тема</th>
+                <th scope="col">Повідомлення</th>
+                <th scope="col">Статус</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for el in data %}
+            <tr>
+                <th scope="row">{{ el.id }}</th>
+                <td>{{ el.time }}</td>
+                <td>{{ el.name }}</td>
+                <td>{{ el.email }}</td>
+                <td>{{ el.title }}</td>
+                <td>
+                    <div class="desc">{{ el.message }}</div>
+                </td>
+                <td style="max-width: 100px">
+                    {% if el.commit == None %}
+                    <a href="/admin/contact/{{el.id}}/done">Відмітити як виконане</a>
+                    {% else %}
+                    <p>{{el.commit}}</p>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,126 @@
+{% extends 'admin_base.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('admin.static',filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="cardholderhero">
+    <div class="row cardholder">
+        <div class="card-two">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class='bx bx-bell icon'></i><a href="#" class="dash-link">Повідомлення</a>
+                    </h5>
+                    <div class="card-inner"
+                        style="height: 70%; display: flex; justify-content: center; align-items:center;">
+                        <h6 class="text-muted" style="font-size: 40px;">Comming Soon</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-two">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class='bx bx-pie-chart-alt icon'></i><a href="#"
+                            class="dash-link">Аналітика</a></h5>
+                    <div class="card-inner"
+                        style="height: 70%; display: flex; justify-content: center; align-items:center;">
+                        <h6 class="text-muted" style="font-size: 40px;">Not Comming Soon</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row cardholder">
+        <div class="card-one">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><i class='bx bx-data icon'></i><a href="/admin/contact"
+                            class="dash-link">Консультації</a></h5>
+                    <div class="card-inner">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Тема</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for el in contact %}
+                                <tr>
+                                    <th scope="row">{{ el.id }}</th>
+                                    <td>{{ el.title }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-one">
+            <div class="card card-one">
+                <div class="card-body">
+                    <h5 class="card-title"><i class='bx bx-data icon'></i><a href="/admin/vacancies"
+                            class="dash-link">Вакансії</a></h5>
+                    <div class="card-inner">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Назва</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for el in vacancies %}
+                                <tr>
+                                    <th scope="row">{{ el.id }}</th>
+                                    <td>{{ el.title }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-one">
+            <div class="card card-one">
+                <div class="card-body">
+                    <h5 class="card-title"><i class='bx bx-data icon'></i><a href="/admin/admins"
+                            class="dash-link">Адмінистратори</a></h5>
+                    <div class="card-inner">
+                        <table class="table table-vacancies">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Ім'я</th>
+                                    <th scope="col">Посада</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for el in admins %}
+                                <tr>
+                                    <th scope="row">{{ el.id }}</th>
+                                    <td>{{ el.name }}</td>
+                                    <td>{{ el.job_title }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+body{
+    overflow: hidden;
+}
+
+.cardholderhero{
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.cardholder{
+    display: flex;
+    justify-content: center;
+}
+
+.card-one{
+    width: 33%;
+    height: 50vh;
+    padding: 10px;
+    overflow: hidden;
+}
+.card-two{
+    width: 50%;
+    height: 50vh;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.btn-go{
+    position: absolute;
+    bottom: 20px;
+}
+
+.dash-link{
+    text-decoration: none;
+    color: black;
+}
+
+.dash-link:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+.card-title{
+    display: flex;
+    align-items: center;
+}
+
+.card-inner{
+    overflow: hidden;
+}
+
+.card{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}

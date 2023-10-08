@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin, AdminIndexView
 from flask_admin.contrib.sqla import ModelView
-from flask_login import LoginManager
+from flask_login import LoginManager, current_user
 
 class MyModelView(ModelView):
     def is_accessible(self):
@@ -20,7 +20,3 @@ class MyAdminIndexView(AdminIndexView):
 login = LoginManager()
 admin = Admin(index_view=MyAdminIndexView())
 db = SQLAlchemy()
-
-@login.user_loader
-def load_user(user_id):
-    return Admins.query.get(user_id)
