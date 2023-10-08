@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prostar</title>
+
+    <!-- Vendor Stylesheets -->
+    <!-- {{ url_for('web.en.static',filename='') }} -->
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/slick.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/select2.min.css') }}">
+
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/fonts/flaticon/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/fonts/flaticon-2/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/fonts/font-awesome/css/all.min.css') }}">
+
+    <!-- Jobz Style sheet -->
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/style.css') }}">
+
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('web.en.static',filename='favicon.ico') }}">
+
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+    <div class="acr-preloader">
+        <div class="acr-preloader-inner">
+            <img src="{{ url_for('web.en.static',filename='/img/svg/preloader.svg') }}" alt="preloader">
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Aside (Mobile Navigation) -->
+    <aside class="main-aside">
+
+        <div class="aside-title">
+            <div class="aside-controls aside-trigger">
+                <h4>Menu</h4>
+                <div class="close-btn close-dark">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="aside-scroll">
+            <ul>
+                <!-- Pages Start -->
+                <li class="menu-section-title">Pages</li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#"> Home Pages</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="/">Home v1</a> </li>
+                        <li class="menu-item"> <a href="/">Home v2</a> </li>
+                        <li class="menu-item"> <a href="/">Home v3</a> </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#"> Blog</a>
+                    <ul class="submenu">
+                        <li class="menu-item menu-item-has-children">
+                            <a href="/">Blog Archive</a>
+                            <ul class="submenu">
+                                <li class="menu-item"> <a href="/">Left Sidebar</a> </li>
+                                <li class="menu-item"> <a href="/">Right Sidebar</a> </li>
+                                <li class="menu-item"> <a href="/">Grid View</a> </li>
+                                <li class="menu-item"> <a href="/">List View</a> </li>
+
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/">Blog Single</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#"> Pages</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="/">About Us</a> </li>
+                        <li class="menu-item"> <a href="/">Services</a> </li>
+                        <li class="menu-item"> <a href="/">FAQ</a> </li>
+                        <li class="menu-item"> <a href="/">Pricing v1</a> </li>
+                        <li class="menu-item"> <a href="/">Pricing v2</a> </li>
+                        <li class="menu-item"> <a href="/">Contact Us</a> </li>
+                        <li class="menu-item"> <a href="/">Coming Soon</a> </li>
+                        <li class="menu-item"> <a href="/">404 Page</a> </li>
+                        <li class="menu-item"> <a href="/">Login v1</a> </li>
+                        <li class="menu-item"> <a href="/">Login v2</a> </li>
+                        <li class="menu-item"> <a href="/">Register v1</a> </li>
+                        <li class="menu-item"> <a href="/">Register v2</a> </li>
+                        <li class="menu-item"> <a href="/">Legal</a> </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#"> Jobs</a>
+                    <ul class="submenu">
+                        <li class="menu-item menu-item-has-children">
+                            <a href="/">Jobs Archive</a>
+                            <ul class="submenu">
+                                <li class="menu-item"> <a href="/">Grid View</a> </li>
+                                <li class="menu-item"> <a href="/">List View</a> </li>
+                                <li class="menu-item"> <a href="/">Map View</a> </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children">
+                            <a href="/">Listing Details</a>
+                            <ul class="submenu">
+                                <li class="menu-item"> <a href="/">Listing Details v1</a> </li>
+                                <li class="menu-item"> <a href="/">Listing Details v2</a> </li>
+                                <li class="menu-item"> <a href="/">Listing Details v3</a> </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item"> <a href="/">Submit Listing</a> </li>
+                        <li class="menu-item"> <a href="/">Compare Jobs</a> </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="/"> Agents</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="/">Agents Archive</a> </li>
+                        <li class="menu-item"> <a href="/">Agent Details</a> </li>
+                        <li class="menu-item menu-item-has-children">
+                            <a href="/">Agent Profile</a>
+                            <ul class="submenu">
+                                <li class="menu-item"> <a href="/">My Account</a> </li>
+                                <li class="menu-item"> <a href="/">My Jobs</a> </li>
+                                <li class="menu-item"> <a href="/">Saved Jobs</a> </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="/"> Agency</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="/">Agency Archive</a> </li>
+                        <li class="menu-item"> <a href="/">Agency Details</a> </li>
+                    </ul>
+                </li>
+
+                <!-- Pages End -->
+
+                <!-- Social Media Start -->
+                <li class="menu-section-title">Get Social</li>
+                <li class="menu-item"> <a href="#"> Facebook</a> </li>
+                <li class="menu-item"> <a href="#"> Linkedin </a> </li>
+                <li class="menu-item"> <a href="#"> Twitter </a> </li>
+                <li class="menu-item"> <a href="#"> Instagram </a> </li>
+                <!-- Social Media End -->
+
+            </ul>
+
+        </div>
+
+    </aside>
+    <div class="aside-overlay aside-trigger"></div>
+
+    <!-- Header Start -->
+    <header class="main-header header-fw can-sticky header-1">
+
+        <!-- Top Header Start -->
+        <div class="top-header">
+            <div class="top-header-inner">
+
+                <ul class="social-media">
+                    <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
+                    <li> <a href="#"> <i class="fab fa-pinterest-p"></i> </a> </li>
+                    <li> <a href="#"> <i class="fab fa-linkedin-in"></i> </a> </li>
+                    <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
+                </ul>
+
+                <ul class="top-header-nav">
+                    <li> <a href="/"> Login</a> </li>
+                    <li>or</li>
+                    <li> <a href="/"> Signup</a> </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Top Header End -->
+
+        <nav class="navbar">
+
+            <!-- Logo -->
+            <a class="navbar-brand" href="/"> <img src="{{ url_for('web.en.static',filename='/img/logo.png') }}"
+                    alt="logo">
+            </a>
+            <!-- Menu -->
+            <ul class="navbar-nav">
+                <li class="menu-item menu-item-has-children">
+                    <a href="#">Home Pages</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="/">Home v1</a> </li>
+                        <li class="menu-item"> <a href="/">Home v2</a> </li>
+                        <li class="menu-item"> <a href="/">Home v3</a> </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#">Blog</a>
+                    <ul class="submenu">
+                        <li class="menu-item menu-item-has-children">
+                            <a href="/">Blog Archive</a>
+                            <ul class="submenu">
+                                <li class="menu-item"> <a href="/">Left Sidebar</a> </li>
+                                <li class="menu-item"> <a href="/">Right Sidebar</a> </li>
+                                <li class="menu-item"> <a href="/">Grid View</a> </li>
+                                <li class="menu-item"> <a href="/">List View</a> </li>
+
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/">Blog Single</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children mega-menu-wrapper">
+                    <a href="#">Pages</a>
+                    <ul class="submenu">
+                        <li>
+                            <img src="{{ url_for('web.en.static',filename='/img/megamenu.png') }}" alt="img">
+                            <div class="container">
+                                <div class="row">
+
+                                    <div class="col-lg-4">
+                                        <div class="mega-menu-item">
+                                            <h5>Full Time Jobs</h5>
+                                            <p>
+                                                Contrary to popular belief, Lorem Ipsum is not simply random text. It
+                                                has roots in a piece of
+                                                classical Latin literature from 45 BC,
+                                                making it over 2000 years old.
+                                            </p>
+                                            <a href="/" class="btn-custom secondary">View All</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="offset-lg-1 col-lg-3">
+                                        <div class="mega-menu-item">
+                                            <h5>Pages</h5>
+                                            <a href="/">About Us</a>
+                                            <a href="services.html">Services</a>
+                                            <a href="/">FAQ</a>
+                                            <a href="/">Pricing v1</a>
+                                            <a href="/">Pricing v2</a>
+                                            <a href="/">Contact Us</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="mega-menu-item">
+                                            <h5>Other Pages</h5>
+                                            <a href="/">Coming Soon</a>
+                                            <a href="/">404 Page</a>
+                                            <a href="/">Login v1</a>
+                                            <a href="/">Login v2</a>
+                                            <a href="/">Register v1</a>
+                                            <a href="/">Register v2</a>
+                                            <a href="/">Legal</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="#">Jobs</a>
+                    <ul class="submenu">
+                        <li class="menu-item menu-item-has-children">
+                            <a href="/">Jobs Archive</a>
+                            <ul class="submenu">
+                                <li class="menu-item"> <a href="/">Grid View</a> </li>
+                                <li class="menu-item"> <a href="/">List View</a> </li>
+                                <li class="menu-item"> <a href="/">Map View</a> </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item menu-item-has-children">
+                            <a href="/">Listing Details</a>
+                            <ul class="submenu">
+                                <li class="menu-item"> <a href="/">Listing Details v1</a> </li>
+                                <li class="menu-item"> <a href="/">Listing Details v2</a> </li>
+                                <li class="menu-item"> <a href="/">Listing Details v3</a> </li>
+                            </ul>
+                        </li>
+                        <li class="menu-item"> <a href="/">Submit Listing</a> </li>
+                        <li class="menu-item"> <a href="/">Compare Jobs</a> </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="/">Agents</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="/">Agents Archive</a> </li>
+                        <li class="menu-item"> <a href="/">Agent Details</a> </li>
+                        <li class="menu-item menu-item-has-children">
+                            <a href="profile.html">Agent Profile</a>
+                            <ul class="submenu submenu-right">
+                                <li class="menu-item"> <a href="/">My Account</a> </li>
+                                <li class="menu-item"> <a href="/">My Jobs</a> </li>
+                                <li class="menu-item"> <a href="/">Saved Jobs</a> </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item menu-item-has-children">
+                    <a href="/">Agency</a>
+                    <ul class="submenu">
+                        <li class="menu-item"> <a href="/">Agency Archive</a> </li>
+                        <li class="menu-item"> <a href="/">Agency Details</a> </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="header-controls">
+                <ul class="header-controls-inner d-none d-lg-flex">
+                    <li>
+                        <a href="/" class="btn-custom primary">Submit Listing <i class="fas fa-plus"></i> </a>
+                    </li>
+                </ul>
+                <!-- Toggler -->
+                <div class="aside-toggler aside-trigger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
+    <!-- Header End -->
+
+    {% block body %}{% endblock %}
+
+    <!-- Footer Start -->
+    <footer class="acr-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-12 footer-widget">
+                    <div class="footer-logo"> <img src="{{ url_for('web.en.static',filename='/img/logo.png') }}"
+                            alt="Jobz">
+                    </div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the
+                        industry's </p>
+                    <ul class="social-media">
+                        <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-pinterest-p"></i> </a> </li>
+                        <li> <a href="#"> <i class="fab fa-linkedin-in"></i> </a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 offset-md-1 col-md-4 col-sm-6 footer-widget">
+                    <h5 class="widget-title">Menu</h5>
+                    <ul>
+                        <li> <a href="#">Find Job</a> </li>
+                        <li> <a href="#">Add Listing</a> </li>
+                        <li> <a href="#">Jobs</a> </li>
+                        <li> <a href="#">Blog</a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-3 col-sm-6 footer-widget">
+                    <h5 class="widget-title">Legal</h5>
+                    <ul>
+                        <li> <a href="#">Privacy Policy</a> </li>
+                        <li> <a href="#">Refund Policy</a> </li>
+                        <li> <a href="#">Cookie Policy</a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-12 footer-widget">
+                    <h5 class="widget-title">Newsletter</h5>
+                    <p>Join our newsletter today, and get the best flats that we have to offer.</p>
+                    <form method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Email Address" name="newsletter-email"
+                                value="">
+                        </div>
+                        <button type="submit" class="btn-custom secondary btn-block" name="button">Join
+                            Newsletter</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <p class="m-0">&copy; Copyright 2022 - <a href="#">YourWebsite</a> All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <ul>
+                            <li> <a href="#">Find a Home</a> </li>
+                            <li> <a href="#">Add Listing</a> </li>
+                            <li> <a href="#">View Brokers</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Vendor Scripts -->
+    <script src="{{ url_for('web.en.static',filename='/js/plugins/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='/js/plugins/popper.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='/js/plugins/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='/js/plugins/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='/js/plugins/jquery.slimScroll.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='/js/plugins/imagesloaded.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='/js/plugins/jquery.countdown.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='/js/plugins/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='/js/plugins/slick.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='/js/plugins/select2.min.js') }}"></script>
+
+    <!-- Jobz Scripts -->
+    <script src="{{ url_for('web.en.static',filename='/js/main.js') }}"></script>
+
+</body>
+
+</html>
