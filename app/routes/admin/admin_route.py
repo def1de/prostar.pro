@@ -1,6 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, make_response
 from flask_login import login_required, current_user, login_user, logout_user
-
 from app.models import *
 
 web_admin = Blueprint("admin_panel", __name__, template_folder="templates/", static_folder="static/")
