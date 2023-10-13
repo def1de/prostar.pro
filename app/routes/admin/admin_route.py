@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, redirect, make_response
+from flask import Blueprint, render_template, request, redirect, make_response, flash
 from flask_login import login_required, current_user, login_user, logout_user
 from app.models import *
 
@@ -11,6 +11,11 @@ def make_shorter(filtering_str, filtering_width=40):
 @web_admin.app_template_filter('hide_password')
 def hide_password(filtering_str):
     return '*'*len(str(filtering_str))
+
+@web_admin.route("/")
+@login_required
+def send_to_dashboard():
+    return redirect("/admin/dashboard")
 
 @web_admin.route('/dashboard')
 @login_required
