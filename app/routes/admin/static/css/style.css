@@ -1,6 +1,9 @@
 /* Google Font Import - Poppins */
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap') * {
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -69,7 +72,7 @@ body.dark {
     margin-top: 10px;
 }
 
-.sidebar header .image,
+.sidebar .logo-inner .image,
 .sidebar .icon {
     min-width: 60px;
     border-radius: 6px;
@@ -104,44 +107,44 @@ body.dark {
 
 /* =========================== */
 
-.sidebar header {
+.sidebar .logo-inner {
     position: relative;
 }
 
-.sidebar header .image-text {
+.sidebar .logo-inner .image-text {
     display: flex;
     align-items: center;
 }
 
-.sidebar header .logo-text {
+.sidebar .logo-inner .logo-text {
     display: flex;
     flex-direction: column;
 }
 
-header .image-text .name {
+.logo-inner .image-text .name {
     margin-top: 2px;
     font-size: 18px;
     font-weight: 600;
 }
 
-header .image-text .profession {
+.logo-inner .image-text .profession {
     font-size: 16px;
     margin-top: -2px;
     display: block;
 }
 
-.sidebar header .image {
+.sidebar .logo-inner .image {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.sidebar header .image img {
+.sidebar .logo-inner .image img {
     width: 40px;
     border-radius: 6px;
 }
 
-.sidebar header .toggle {
+.sidebar .logo-inner .toggle {
     position: absolute;
     top: 50%;
     right: -25px;
@@ -159,7 +162,7 @@ header .image-text .profession {
     transition: var(--tran-05);
 }
 
-body.dark .sidebar header .toggle {
+body.dark .sidebar .logo-inner .toggle {
     color: var(--text-color);
 }
 
@@ -328,4 +331,10 @@ body.dark .home .text {
 .nav-link {
     padding: 0;
     margin: 0;
+}
+
+.logo-name {
+    font-family: 'Play', sans-serif;
+    color: #2e353f;
+    font-size: 1.25rem;
 }

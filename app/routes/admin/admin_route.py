@@ -4,10 +4,6 @@ from app.models import *
 
 web_admin = Blueprint("admin_panel", __name__, template_folder="templates/", static_folder="static/")
 
-@web_admin.app_template_filter('make_shorter')
-def make_shorter(filtering_str, filtering_width=40):
-    return textwrap.shorten(filtering_str, width=filtering_width, placeholder="...")
-
 @web_admin.app_template_filter('hide_password')
 def hide_password(filtering_str):
     return '*'*len(str(filtering_str))
@@ -157,7 +153,7 @@ def data_admins():
         img = request.files['image']
         if not img:
             try:
-                with app.open_resource(app.root_path + url_for('static', filename='img/admin/logo.png'), "rb") as f:
+                with app.open_resource(app.root_path + url_for('admin_panel.static', filename='img/admin/logo.png'), "rb") as f:
                     binary = f.read()
             except: return "<h1>Error</h1>"
         else:

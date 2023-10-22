@@ -15,7 +15,7 @@ sidebar.addEventListener("mouseout", () => {
 function adaptiveHome() {
     setTimeout(() => {
         document.querySelector('.home').style.width = document.querySelector('body').offsetWidth - document.querySelector('.sidebar').offsetWidth - 10 + 'px';
-    }, 500);
+    }, 210);
 }
 
 searchBtn.addEventListener("click", () => {

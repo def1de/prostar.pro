@@ -16,6 +16,6 @@ def create_app():
     db.init_app(app)
     admin.init_app(app)
     login.init_app(app)
-    login.login_view = "log_in"
+    login.login_view = "admin_panel.log_in"
 
     return app

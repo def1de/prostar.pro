@@ -11,7 +11,7 @@
     <title>Prostar - Admin Panel</title>
 
     <!-- ========== Favicon Icon ========== -->
-    <link rel="shortcut icon" href="{{ url_for('admin.static',filename='img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ url_for('web.en.static',filename='favicon.ico') }}">
 
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -26,7 +26,7 @@
 
 <body style="overflow: hidden;" onload="adaptiveHome()">
     <nav class="sidebar close">
-        <header>
+        <header class="logo-inner">
             <div class="image-text">
                 <span class="image">
                     <img src="/admin/load_avatar/{{user.id}}" alt="">
@@ -112,7 +112,17 @@
                 </li>
 
                 <li class="logo">
-                    <span class="mode-text text" title="beta">PROSTAR</span>
+                    <header class="logo-inner">
+                        <div class="image-text">
+                            <span class="image">
+                                <img src="{{ url_for('web.en.static',filename='img/only-logo.png') }}" alt="">
+                            </span>
+
+                            <div class="text logo-text">
+                                <span class="logo-name">PROSTAR</span>
+                            </div>
+                        </div>
+                    </header>
                 </li>
 
             </div>

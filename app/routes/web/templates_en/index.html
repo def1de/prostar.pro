@@ -145,11 +145,11 @@
           <h2 class="title">We Advertise All Job Planner In City </h2>
           <div class="acr-dots"></div>
         </div>
-        <img src="{{ url_for('web.en.static',filename='/img/listings-list/6.jpg') }}" alt="listing">
+        <img src="{{ url_for('web.en.static',filename='img/listings-list/6.jpg') }}" alt="listing">
       </div>
       <div class="col-lg-6 acr-single-img-wrapper">
         <div class="section-title-wrap">
-          <img src="{{ url_for('web.en.static',filename='/img/about/1.jpg') }}" alt="listing">
+          <img src="{{ url_for('web.en.static',filename='img/about/1.jpg') }}" alt="listing">
           <p class="subtitle">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy
             text of the printing and typesetting industry.</p>
@@ -179,7 +179,7 @@
       <div class="col-lg-6 masonry-item">
         <div class="acr-country-item acr-country-item-lg">
           <div class="acr-country-thumb">
-            <img src="{{ url_for('web.en.static',filename='/img/countries/6.jpg') }}" alt="country">
+            <img src="{{ url_for('web.en.static',filename='img/countries/6.jpg') }}" alt="country">
           </div>
           <a href="/" class="acr-country-content">
             <h4>New Jersey</h4>
@@ -192,7 +192,7 @@
           <div class="col-lg-6 col-sm-6">
             <div class="acr-country-item">
               <div class="acr-country-thumb">
-                <img src="{{ url_for('web.en.static',filename='/img/countries/2.jpg') }}" alt="country">
+                <img src="{{ url_for('web.en.static',filename='img/countries/2.jpg') }}" alt="country">
               </div>
               <a href="/" class="acr-country-content">
                 <h6>Canada</h6>
@@ -202,7 +202,7 @@
           <div class="col-lg-6 col-sm-6">
             <div class="acr-country-item">
               <div class="acr-country-thumb">
-                <img src="{{ url_for('web.en.static',filename='/img/countries/3.jpg') }}" alt="country">
+                <img src="{{ url_for('web.en.static',filename='img/countries/3.jpg') }}" alt="country">
               </div>
               <a href="/" class="acr-country-content">
                 <h6>Dubai</h6>
@@ -212,7 +212,7 @@
           <div class="col-lg-6 col-sm-6">
             <div class="acr-country-item">
               <div class="acr-country-thumb">
-                <img src="{{ url_for('web.en.static',filename='/img/countries/4.jpg') }}" alt="country">
+                <img src="{{ url_for('web.en.static',filename='img/countries/4.jpg') }}" alt="country">
               </div>
               <a href="/" class="acr-country-content">
                 <h6>Saudi Arabia</h6>
@@ -222,7 +222,7 @@
           <div class="col-lg-6 col-sm-6">
             <div class="acr-country-item">
               <div class="acr-country-thumb">
-                <img src="{{ url_for('web.en.static',filename='/img/countries/1.jpg') }}" alt="country">
+                <img src="{{ url_for('web.en.static',filename='img/countries/1.jpg') }}" alt="country">
               </div>
               <a href="/" class="acr-country-content">
                 <h6>California</h6>
@@ -244,20 +244,20 @@
 
     <div class="section-title-wrap section-header flex-header">
       <div class="section-title-text">
-        <h5 class="custom-primary">Find Your Home</h5>
+        <h5 class="custom-primary">Find Your Dream Job</h5>
         <h2 class="title">Recent Jobs</h2>
       </div>
-      <a href="/" class="btn-custom">View All</a>
+      <a href="/jobs" class="btn-custom">View All</a>
     </div>
 
     <div class="row">
 
       <!-- Listing Start -->
+      {% for el in jobs %}
       <div class="col-lg-4">
         <div class="listing">
           <div class="listing-thumbnail">
-            <a href="listing-details-v1.html"><img src="{{ url_for('web.en.static',filename='/img/listings/1.jpg') }}"
-                alt="listing"></a>
+            <a href="listing-details-v1.html"><img src="/jobs/{{el.id}}/load_image" alt="listing"></a>
             <div class="listing-badges">
               <span class="listing-badge featured"> <i class="fas fa-star"></i> </span>
               <span class="listing-badge pending"> Pending</span>
@@ -269,10 +269,10 @@
           </div>
           <div class="listing-body">
             <div class="listing-author">
-              <img src="{{ url_for('web.en.static',filename='/img/people/2.jpg') }}" alt="author">
+              <img src="{{ url_for('web.en.static',filename='img/only-logo.png') }}" alt="author" class="prostar">
               <div class="listing-author-body">
-                <p> <a href="#">Heather Mclayn</a> </p>
-                <span class="listing-date">March 3, 2022</span>
+                <p> <a href="#">Prostar</a> </p>
+                <span class="listing-date">{{el.post_time}}</span>
               </div>
               <div class="dropdown options-dropdown">
                 <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
@@ -281,19 +281,19 @@
                   <ul>
                     <li> <a href="tel:+123456789"> <i class="fas fa-phone"></i> Call Agent</a> </li>
                     <li> <a href="mailto:+123456789"> <i class="fas fa-envelope"></i> Send Message</a> </li>
-                    <li> <a href="/"> <i class="fas fa-bookmark"></i> Book Tour</a> </li>
+                    <li> <a href="/en/jobs/{{el.id}}"> <i class="fas fa-bookmark"></i> Book Tour</a> </li>
                   </ul>
                 </div>
               </div>
             </div>
-            <h5 class="listing-title"> <a href="/" title="Development Team Lead">Development
-                Team Lead</a> </h5>
-            <span class="listing-price">3,500$ <span>/Month</span> </span>
-            <p class="listing-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <h5 class="listing-title"> <a href="/en/jobs/{{el.id}}" title="Development Team Lead">{{el.title}}</a>
+            </h5>
+            <span class="listing-price">{{el.salary}} <span>/Month</span> </span>
+            <!-- <p class="listing-text">{{el.description|safe|make_shorter}}</p> -->
             <div class="acr-listing-icons">
               <div class="acr-listing-icon" data-toggle="tooltip" title="Location">
                 <i class="flaticon-map-pointer"></i>
-                <span class="acr-listing-icon-value">L.A.</span>
+                <span class="acr-listing-icon-value">{{el.location}}</span>
               </div>
               <div class="acr-listing-icon" data-toggle="tooltip" title="Time">
                 <i class="flaticon-clock"></i>
@@ -305,136 +305,14 @@
               </div>
             </div>
             <div class="listing-gallery-wrapper">
-              <a href="/" class="btn-custom btn-sm secondary">View Details</a>
+              <a href="/en/jobs/{{el.id}}" class="btn-custom btn-sm secondary">View Details</a>
               <a href="#" data-toggle="tooltip" title="Gallery" class="listing-gallery"> <i class="fas fa-camera"></i>
               </a>
             </div>
           </div>
         </div>
       </div>
-      <!-- Listing End -->
-
-      <!-- Listing Start -->
-      <div class="col-lg-4">
-        <div class="listing">
-          <div class="listing-thumbnail">
-            <a href="listing-details-v1.html"><img src="{{ url_for('web.en.static',filename='/img/listings/2.jpg') }}"
-                alt="listing"></a>
-            <div class="listing-badges">
-              <span class="listing-badge featured"> <i class="fas fa-star"></i> </span>
-              <span class="listing-badge sale"> On Job</span>
-            </div>
-            <div class="listing-controls">
-              <a href="#" class="favorite"><i class="far fa-heart"></i></a>
-              <a href="#" class="compare"><i class="fas fa-sync-alt"></i></a>
-            </div>
-          </div>
-          <div class="listing-body">
-            <div class="listing-author">
-              <img src="{{ url_for('web.en.static',filename='/img/people/1.jpg') }}" alt="author">
-              <div class="listing-author-body">
-                <p> <a href="#">Randy Blue</a> </p>
-                <span class="listing-date">March 3, 2022</span>
-              </div>
-              <div class="dropdown options-dropdown">
-                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                    class="fas fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <ul>
-                    <li> <a href="tel:+123456789"> <i class="fas fa-phone"></i> Call Agent</a> </li>
-                    <li> <a href="mailto:+123456789"> <i class="fas fa-envelope"></i> Send Message</a> </li>
-                    <li> <a href="listing-details-v1.html"> <i class="fas fa-bookmark"></i> Book Tour</a> </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <h5 class="listing-title"> <a href="listing-details-v1.html" title="Hiring Online English Teachers">Hiring
-                Online English Teachers</a> </h5>
-            <span class="listing-price">2,300$ <span>/Month</span> </span>
-            <p class="listing-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <div class="acr-listing-icons">
-              <div class="acr-listing-icon" data-toggle="tooltip" title="Location">
-                <i class="flaticon-map-pointer"></i>
-                <span class="acr-listing-icon-value">L.A.</span>
-              </div>
-              <div class="acr-listing-icon" data-toggle="tooltip" title="Time">
-                <i class="flaticon-clock"></i>
-                <span class="acr-listing-icon-value">3days ago</span>
-              </div>
-              <div class="acr-listing-icon" data-toggle="tooltip" title="company">
-                <i class="flaticon-suitcase"></i>
-                <span class="acr-listing-icon-value">IT</span>
-              </div>
-            </div>
-            <div class="listing-gallery-wrapper">
-              <a href="listing-details-v1.html" class="btn-custom btn-sm secondary">View Details</a>
-              <a href="#" data-toggle="tooltip" title="Gallery" class="listing-gallery"> <i class="fas fa-camera"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Listing End -->
-
-      <!-- Listing Start -->
-      <div class="col-lg-4">
-        <div class="listing">
-          <div class="listing-thumbnail">
-            <a href="listing-details-v1.html"><img src="{{ url_for('web.en.static',filename='/img/listings/3.jpg') }}"
-                alt="listing"></a>
-            <div class="listing-badges">
-              <span class="listing-badge pending"> Pending</span>
-            </div>
-            <div class="listing-controls">
-              <a href="#" class="favorite"><i class="far fa-heart"></i></a>
-              <a href="#" class="compare"><i class="fas fa-sync-alt"></i></a>
-            </div>
-          </div>
-          <div class="listing-body">
-            <div class="listing-author">
-              <img src="{{ url_for('web.en.static',filename='/img/people/2.jpg') }}" alt="author">
-              <div class="listing-author-body">
-                <p> <a href="#">Heather Mclayn</a> </p>
-                <span class="listing-date">March 3, 2022</span>
-              </div>
-              <div class="dropdown options-dropdown">
-                <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                    class="fas fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <ul>
-                    <li> <a href="tel:+123456789"> <i class="fas fa-phone"></i> Call Agent</a> </li>
-                    <li> <a href="mailto:+123456789"> <i class="fas fa-envelope"></i> Send Message</a> </li>
-                    <li> <a href="listing-details-v1.html"> <i class="fas fa-bookmark"></i> Book Tour</a> </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <h5 class="listing-title"> <a href="listing-details-v1.html" title="Development Team Lead">Development
-                Team Lead</a> </h5>
-            <span class="listing-price">3,500$ <span>/Month</span> </span>
-            <p class="listing-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <div class="acr-listing-icons">
-              <div class="acr-listing-icon" data-toggle="tooltip" title="Location">
-                <i class="flaticon-map-pointer"></i>
-                <span class="acr-listing-icon-value">L.A.</span>
-              </div>
-              <div class="acr-listing-icon" data-toggle="tooltip" title="Time">
-                <i class="flaticon-clock"></i>
-                <span class="acr-listing-icon-value">3days ago</span>
-              </div>
-              <div class="acr-listing-icon" data-toggle="tooltip" title="company">
-                <i class="flaticon-suitcase"></i>
-                <span class="acr-listing-icon-value">IT</span>
-              </div>
-            </div>
-            <div class="listing-gallery-wrapper">
-              <a href="listing-details-v1.html" class="btn-custom btn-sm secondary">View Details</a>
-              <a href="#" data-toggle="tooltip" title="Gallery" class="listing-gallery"> <i class="fas fa-camera"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
       <!-- Listing End -->
 
     </div>
@@ -534,7 +412,7 @@
         </div>
         <div class="acr-dots-wrapper acr-agent-thumb">
           <div class="acr-dots"></div>
-          <a href="agent-details.html"><img src="{{ url_for('web.en.static',filename='/img/agents/1.jpg') }}"
+          <a href="agent-details.html"><img src="{{ url_for('web.en.static',filename='img/agents/1.jpg') }}"
               alt="agent"></a>
         </div>
         <div class="acr-agent-body">
@@ -551,7 +429,7 @@
       <div class="acr-agent">
         <div class="acr-dots-wrapper acr-agent-thumb">
           <div class="acr-dots"></div>
-          <a href="agent-details.html"><img src="{{ url_for('web.en.static',filename='/img/agents/2.jpg') }}"
+          <a href="agent-details.html"><img src="{{ url_for('web.en.static',filename='img/agents/2.jpg') }}"
               alt="agent"></a>
         </div>
         <div class="acr-agent-body">
@@ -569,7 +447,7 @@
 
         <div class="acr-dots-wrapper acr-agent-thumb">
           <div class="acr-dots"></div>
-          <a href="agent-details.html"><img src="{{ url_for('web.en.static',filename='/img/agents/3.jpg') }}"
+          <a href="agent-details.html"><img src="{{ url_for('web.en.static',filename='img/agents/3.jpg') }}"
               alt="agent"></a>
         </div>
         <div class="acr-agent-body">
@@ -589,7 +467,7 @@
         </div>
         <div class="acr-dots-wrapper acr-agent-thumb">
           <div class="acr-dots"></div>
-          <a href="agent-details.html"><img src="{{ url_for('web.en.static',filename='/img/agents/4.jpg') }}"
+          <a href="agent-details.html"><img src="{{ url_for('web.en.static',filename='img/agents/4.jpg') }}"
               alt="agent"></a>
         </div>
         <div class="acr-agent-body">
@@ -637,7 +515,7 @@
               industry</p>
           </div>
           <div class="acr-testimonial-author">
-            <img src="{{ url_for('web.en.static',filename='/img/people/1.jpg') }}" alt="testimonial">
+            <img src="{{ url_for('web.en.static',filename='img/people/1.jpg') }}" alt="testimonial">
             <div class="acr-testimonial-author-inner">
               <h6>John Mishlen</h6>
               <span>Executive CEO at company</span>
@@ -665,7 +543,7 @@
               industry</p>
           </div>
           <div class="acr-testimonial-author">
-            <img src="{{ url_for('web.en.static',filename='/img/people/2.jpg') }}" alt="testimonial">
+            <img src="{{ url_for('web.en.static',filename='img/people/2.jpg') }}" alt="testimonial">
             <div class="acr-testimonial-author-inner">
               <h6>Moe Sondi</h6>
               <span>Executive CEO at company</span>
@@ -693,7 +571,7 @@
               industry</p>
           </div>
           <div class="acr-testimonial-author">
-            <img src="{{ url_for('web.en.static',filename='/img/people/3.jpg') }}" alt="testimonial">
+            <img src="{{ url_for('web.en.static',filename='img/people/3.jpg') }}" alt="testimonial">
             <div class="acr-testimonial-author-inner">
               <h6>Mandy Floss</h6>
               <span>Executive CEO at company</span>
@@ -714,22 +592,22 @@
   <div class="container">
     <div class="clients-slider">
       <div class="acr-client-item text-center">
-        <img src="{{ url_for('web.en.static',filename='/img/clients/1.png') }}" alt="client">
+        <img src="{{ url_for('web.en.static',filename='img/clients/1.png') }}" alt="client">
       </div>
       <div class="acr-client-item text-center">
-        <img src="{{ url_for('web.en.static',filename='/img/clients/2.png') }}" alt="client">
+        <img src="{{ url_for('web.en.static',filename='img/clients/2.png') }}" alt="client">
       </div>
       <div class="acr-client-item text-center">
-        <img src="{{ url_for('web.en.static',filename='/img/clients/3.png') }}" alt="client">
+        <img src="{{ url_for('web.en.static',filename='img/clients/3.png') }}" alt="client">
       </div>
       <div class="acr-client-item text-center">
-        <img src="{{ url_for('web.en.static',filename='/img/clients/4.png') }}" alt="client">
+        <img src="{{ url_for('web.en.static',filename='img/clients/4.png') }}" alt="client">
       </div>
       <div class="acr-client-item text-center">
-        <img src="{{ url_for('web.en.static',filename='/img/clients/5.png') }}" alt="client">
+        <img src="{{ url_for('web.en.static',filename='img/clients/5.png') }}" alt="client">
       </div>
       <div class="acr-client-item text-center">
-        <img src="{{ url_for('web.en.static',filename='/img/clients/6.png') }}" alt="client">
+        <img src="{{ url_for('web.en.static',filename='img/clients/6.png') }}" alt="client">
       </div>
     </div>
   </div>

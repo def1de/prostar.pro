@@ -9,7 +9,7 @@ class MyModelView(ModelView):
         return current_user.is_authenticated
     
     def inaccessible_callback(self, name, **kwargs):
-        return redirect(url_for('log_in'))
+        return redirect(url_for('admin_panel.log_in'))
 
 class MyAdminIndexView(AdminIndexView):
     def is_accessible(self):

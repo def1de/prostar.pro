@@ -38,3 +38,14 @@ class Vacancies(db.Model):
 class Emails(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(255), default=None)
+
+# class Offers(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.Text, default="-")
+#     job_type = db.Column(db.String(255), default="-")
+#     job_offer = db.Column(db.Integer, default=0)
+#     period = db.Column(db.String(255))
+#     accomodation = db.Column(db.String(255))
+#     video = db.Column(db.String(255))
+#     img = db.Column(db.LargeBinary, default=None)
+#     address = db.Column(db.String(255))

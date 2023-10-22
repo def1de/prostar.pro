@@ -8,20 +8,20 @@
 
     <!-- Vendor Stylesheets -->
     <!-- {{ url_for('web.en.static',filename='') }} -->
-    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/animate.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/magnific-popup.css') }}">
-    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/slick.css') }}">
-    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/slick-theme.css') }}">
-    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/plugins/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='css/plugins/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='css/plugins/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='css/plugins/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='css/plugins/slick.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='css/plugins/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='css/plugins/select2.min.css') }}">
 
     <!-- Icon Fonts -->
-    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/fonts/flaticon/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/fonts/flaticon-2/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/fonts/font-awesome/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='fonts/flaticon/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='fonts/flaticon-2/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='fonts/font-awesome/css/all.min.css') }}">
 
     <!-- Jobz Style sheet -->
-    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('web.en.static',filename='css/style.css') }}">
 
 
     <!-- Favicon -->
@@ -34,7 +34,7 @@
     <!-- Preloader Start -->
     <div class="acr-preloader">
         <div class="acr-preloader-inner">
-            <img src="{{ url_for('web.en.static',filename='/img/svg/preloader.svg') }}" alt="preloader">
+            <img src="{{ url_for('web.en.static',filename='img/svg/preloader.svg') }}" alt="preloader">
         </div>
     </div>
     <!-- Preloader End -->
@@ -57,10 +57,10 @@
                 <!-- Pages Start -->
                 <li class="menu-section-title">Pages</li>
                 <li class="menu-item">
-                    <a href="/"> Home</a>
+                    <a href="/en"> Home</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#"> Jobs</a>
+                    <a href="/en/jobs"> Jobs</a>
                 </li>
                 <li class="menu-item">
                     <a href="#"> About</a>
@@ -68,15 +68,18 @@
                 <li class="menu-item">
                     <a href="/en/contact"> Contact</a>
                 </li>
+                <li class="menu-item">
+                    <a href="/en/apply"> Submit listing</a>
+                </li>
 
                 <!-- Pages End -->
 
                 <!-- Social Media Start -->
                 <li class="menu-section-title">Get Social</li>
-                <li class="menu-item"> <a href="#"> Facebook</a> </li>
-                <li class="menu-item"> <a href="#"> Linkedin </a> </li>
-                <li class="menu-item"> <a href="#"> Twitter </a> </li>
-                <li class="menu-item"> <a href="#"> Instagram </a> </li>
+                <li class="menu-item"> <a href="https://www.facebook.com/prostar.kr?mibextid=ZbWKwL"> Facebook</a> </li>
+                <li class="menu-item"> <a
+                        href="https://invite.viber.com/?g2=AQBrp%2FrHB%2BvS3kw2iUyGapwi01l5XQDmRo7RhpqN08Zv5cM47Kf3tjoy8n4nO5S6">
+                        Viber </a> </li>
                 <!-- Social Media End -->
 
             </ul>
@@ -94,10 +97,16 @@
             <div class="top-header-inner">
 
                 <ul class="social-media">
-                    <li> <a href="#"> <i class="fab fa-facebook-f"></i> </a> </li>
-                    <li> <a href="#"> <i class="fab fa-pinterest-p"></i> </a> </li>
-                    <li> <a href="#"> <i class="fab fa-linkedin-in"></i> </a> </li>
-                    <li> <a href="#"> <i class="fab fa-twitter"></i> </a> </li>
+                    <li> <a href="https://www.facebook.com/prostar.kr?mibextid=ZbWKwL"> <i
+                                class="fab fa-facebook-f"></i> </a> </li>
+                    <li> <a
+                            href="https://invite.viber.com/?g2=AQBrp%2FrHB%2BvS3kw2iUyGapwi01l5XQDmRo7RhpqN08Zv5cM47Kf3tjoy8n4nO5S6">
+                            <i class="fab fa-viber"></i> </a> </li>
+                    <li> <a href="https://www.linkedin.com/company/prostarllc/">
+                            <i class="fab fa-linkedin-in"></i> </a>
+                    </li>
+                    <li> <a href="https://chat.whatsapp.com/BuRMG0Jc7Q2CeGKI1XzD6V">
+                            <i class="fab fa-whatsapp"></i> </a> </li>
                 </ul>
 
                 <ul class="top-header-nav">
@@ -112,16 +121,16 @@
         <nav class="navbar">
 
             <!-- Logo -->
-            <a class="navbar-brand" href="/"> <img src="{{ url_for('web.en.static',filename='/img/logo.png') }}"
+            <a class="navbar-brand" href="/"> <img src="{{ url_for('web.en.static',filename='img/logo.png') }}"
                     alt="logo">
             </a>
             <!-- Menu -->
             <ul class="navbar-nav">
                 <li class="menu-item">
-                    <a href="/">Home</a>
+                    <a href="/en">Home</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#">Jobs</a>
+                    <a href="/en/jobs">Jobs</a>
                 </li>
                 <li class="menu-item">
                     <a href="#">About</a>
@@ -134,7 +143,7 @@
             <div class="header-controls">
                 <ul class="header-controls-inner d-none d-lg-flex">
                     <li>
-                        <a href="/" class="btn-custom primary">Submit Listing <i class="fas fa-plus"></i> </a>
+                        <a href="/apply" class="btn-custom primary">Submit Listing <i class="fas fa-plus"></i> </a>
                     </li>
                 </ul>
                 <!-- Toggler -->
@@ -157,7 +166,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-sm-12 footer-widget">
-                    <div class="footer-logo"> <img src="{{ url_for('web.en.static',filename='/img/logo.png') }}"
+                    <div class="footer-logo"> <img src="{{ url_for('web.en.static',filename='img/logo.png') }}"
                             alt="Jobz">
                     </div>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
@@ -222,19 +231,20 @@
     <!-- Footer End -->
 
     <!-- Vendor Scripts -->
-    <script src="{{ url_for('web.en.static',filename='/js/plugins/jquery-3.4.1.min.js') }}"></script>
-    <script src="{{ url_for('web.en.static',filename='/js/plugins/popper.min.js') }}"></script>
-    <script src="{{ url_for('web.en.static',filename='/js/plugins/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('web.en.static',filename='/js/plugins/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ url_for('web.en.static',filename='/js/plugins/jquery.slimScroll.min.js') }}"></script>
-    <script src="{{ url_for('web.en.static',filename='/js/plugins/imagesloaded.min.js') }}"></script>
-    <script src="{{ url_for('web.en.static',filename='/js/plugins/jquery.countdown.min.js') }}"></script>
-    <script src="{{ url_for('web.en.static',filename='/js/plugins/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ url_for('web.en.static',filename='/js/plugins/slick.min.js') }}"></script>
-    <script src="{{ url_for('web.en.static',filename='/js/plugins/select2.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/plugins/jquery-3.4.1.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/plugins/popper.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/plugins/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/plugins/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/plugins/jquery.slimScroll.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/plugins/imagesloaded.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/plugins/jquery.countdown.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/plugins/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/plugins/slick.min.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/plugins/select2.min.js') }}"></script>
+    {%block scripts%}{% endblock %}
 
     <!-- Jobz Scripts -->
-    <script src="{{ url_for('web.en.static',filename='/js/main.js') }}"></script>
+    <script src="{{ url_for('web.en.static',filename='js/main.js') }}"></script>
 
 </body>
 
