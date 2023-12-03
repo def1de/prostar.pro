@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Prostar - Contact{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+
+<!-- Subheader Start -->
+<div class="subheader bg-cover bg-center dark-overlay"
+  style="background-image: url('{{ url_for('web.en.static',filename='img/subheader.jpg') }}')">
+  <div class="container">
+    <div class="subheader-inner">
+      <h1 class="text-white">Error 404</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#"> <i class="fas fa-home"></i> </a></li>
+          <li class="breadcrumb-item active" aria-current="page">Error 404</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+<!-- Subheader End -->
+
+<div class="section bg-norepeat bg-bottom"
+  style="background-image: url('{{ url_for('web.en.static',filename='img/misc/bldg.png') }}')">
+  <div class="container">
+
+    <div class="section-404">
+      <div class="section-404-text mb-0">
+        <h1 class="title">Error 404</h1>
+        <p class="subtitle">Page you are looking for is not found.</p>
+        <a href="/en/" class="btn-custom">Go back Home</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="acr-clouds">
+    <div class="cloud-one"
+      style="background-image: url('{{ url_for('web.en.static',filename='img/misc/cloud1.png') }}')"></div>
+    <div class="cloud-two"
+      style="background-image: url('{{ url_for('web.en.static',filename='img/misc/cloud2.png') }}')"></div>
+    <div class="cloud-three"
+      style="background-image: url('{{ url_for('web.en.static',filename='img/misc/cloud3.png') }}')"></div>
+    <div class="cloud-four"
+      style="background-image: url('{{ url_for('web.en.static',filename='img/misc/cloud4.png') }}')"></div>
+    <div class="cloud-five"
+      style="background-image: url('{{ url_for('web.en.static',filename='img/misc/cloud5.png') }}')"></div>
+  </div>
+</div>
+
+{% endblock %}

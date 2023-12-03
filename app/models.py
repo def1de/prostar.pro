@@ -39,6 +39,23 @@ class Emails(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(255), default=None)
 
+class EmploymentLocations(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    location = db.Column(db.String(255), default=None, nullable=False)
+
+class WorkLocations(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    location = db.Column(db.String(255), default=None, nullable=False)
+
+class Categories(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    category = db.Column(db.String(255), default=None, nullable=False)
+
+class Specialisation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    specialisation = db.Column(db.String(255), default=None, nullable=False)
+    nest = db.Column(db.Integer, nullable=False)
+
 # class Offers(db.Model):
 #     id = db.Column(db.Integer, primary_key=True)
 #     name = db.Column(db.Text, default="-")

@@ -1,0 +1,365 @@
+{% extends 'base.html' %}
+
+{% block title %}Prostar - Contact{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block body %}
+
+<!-- Subheader Start -->
+<div class="subheader bg-cover bg-center dark-overlay"
+  style="background-image: url('{{ url_for('web.en.static',filename='img/subheader.jpg') }}')">
+  <div class="container">
+    <div class="subheader-inner">
+      <h1 class="text-white">Jobs Grid</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#"> <i class="fas fa-home"></i> </a></li>
+          <li class="breadcrumb-item"><a href="#">Jobs</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Jobs Grid</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
+<!-- Subheader End -->
+
+<!-- Jobs Start -->
+<div class="section">
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Sidebar Start -->
+      <div class="col-lg-4">
+        <div class="sidebar sidebar-left">
+          <div class="sidebar-widget">
+            <div class="acr-collapse-trigger acr-custom-chevron-wrapper">
+              <h5>Filter Jobs</h5>
+              <div class="acr-custom-chevron">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="acr-collapsable">
+              <div class="acr-filter-form">
+                <form method="post">
+                  <div class="acr-custom-select form-group">
+                    <label>Location: </label>
+                    <select class="acr-select2" name="location">
+                      <option value="" label="Location"></option>
+                      <option value="*">Any Location</option>
+                      <option value="California, CA">California, CA</option>
+                      <option value="Lawndale, CA">Lawndale, CA</option>
+                      <option value="Stroudsburg, PA">Stroudsburg, PA</option>
+                      <option selected value="West Roxbury, MA">West Roxbury, MA</option>
+                      <option value="Ponte Vedra Beach, FL">Ponte Vedra Beach, FL</option>
+                      <option value="Fort Worth, TX">Fort Worth, TX</option>
+                      <option value="Willingboro, NJ">Willingboro, NJ</option>
+                    </select>
+                  </div>
+                  <div class="acr-custom-select form-group">
+                    <label>Status: </label>
+                    <select class="acr-select2" name="status">
+                      <option value="" label="Status"></option>
+                      <option selected value="*">Any Status</option>
+                      <option value="For Partime">For Partime</option>
+                      <option value="Full Time">Full Time</option>
+                      <option value="For Job">For Job</option>
+                      <option value="Leased">Leased</option>
+                      <option value="New Addition">New Addition</option>
+                      <option value="Sold">Sold</option>
+                      <option value="Partnership">Partnership</option>
+                      <option value="Reduced">Reduced</option>
+                      <option value="Special Offer">Special Offer</option>
+                    </select>
+                  </div>
+                  <div class="acr-custom-select form-group">
+                    <label>Price Range: </label>
+                    <select class="acr-select2" name="price">
+                      <option value="" label="Price Range"></option>
+                      <option selected value="*">Any Range</option>
+                      <option value="$60k - $80k">$60k - $80k</option>
+                      <option value="$80k - $100k">$80k - $100k</option>
+                      <option value="$100k - $120k">$100k - $120k</option>
+                      <option value="$120k - $140k">$120k - $140k</option>
+                      <option value="$140k - $160k">$140k - $160k</option>
+                      <option value="$160k - $180k">$160k - $180k</option>
+                      <option value="$180k - $200k">$180k - $200k</option>
+                    </select>
+                  </div>
+                  <div class="acr-custom-select form-group">
+                    <label>Full Time: </label>
+                    <select class="acr-select2" name="beds">
+                      <option value="" label="Full Time"></option>
+                      <option selected value="*">Any amount</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5+">5+</option>
+                    </select>
+                  </div>
+                  <div class="acr-custom-select form-group">
+                    <label>Guest Room </label>
+                    <select class="acr-select2" name="baths">
+                      <option value="" label="Bathrooms"></option>
+                      <option selected value="*">Any amount</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5+">5+</option>
+                    </select>
+                  </div>
+                  <div class="acr-custom-select form-group">
+                    <label>Type: </label>
+                    <select class="acr-select2" name="type">
+                      <option value="" label="Type"></option>
+                      <option selected value="*">Any Type</option>
+                      <option value="Part Time">Part Time</option>
+                      <option value="Full Time">Full Time</option>
+                      <option value="Job Music">Job Music</option>
+                      <option value="Job Cakes">Job Cakes</option>
+                      <option value="Job Gifts">Job Gifts</option>
+                      <option value="Job Website">Job Website</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn-block btn-custom" name="button">Apply filters</button>
+                </form>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="sidebar-widget">
+            <div class="acr-collapse-trigger acr-custom-chevron-wrapper">
+              <h5>Recent Listing</h5>
+              <div class="acr-custom-chevron">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="acr-collapsable">
+              <!-- Listing Start -->
+              <div class="listing listing-list">
+                <div class="listing-thumbnail">
+                  <a href="listing-details-v1.html"><img
+                      src="{{ url_for('web.en.static',filename='img/listings/1.jpg') }}" alt="listing"></a>
+                </div>
+                <div class="listing-body">
+                  <h6 class="listing-title"> <a href="listing-details-v1.html" title="Development Team Lead">Development
+                      Team Lead</a> </h6>
+                  <span class="listing-price">3,500$ <span>/Month</span> </span>
+                </div>
+              </div>
+              <!-- Listing End -->
+              <!-- Listing Start -->
+              <div class="listing listing-list">
+                <div class="listing-thumbnail">
+                  <a href="listing-details-v1.html"><img
+                      src="{{ url_for('web.en.static',filename='img/listings/2.jpg') }}" alt="listing"></a>
+                </div>
+                <div class="listing-body">
+                  <h6 class="listing-title"> <a href="listing-details-v1.html"
+                      title="Hiring Online English Teachers">Hiring Online English Teachers</a> </h6>
+                  <span class="listing-price">1,300$ <span>/Month</span> </span>
+                </div>
+              </div>
+              <!-- Listing End -->
+              <!-- Listing Start -->
+              <div class="listing listing-list">
+                <div class="listing-thumbnail">
+                  <a href="listing-details-v1.html"><img
+                      src="{{ url_for('web.en.static',filename='img/listings/3.jpg') }}" alt="listing"></a>
+                </div>
+                <div class="listing-body">
+                  <h6 class="listing-title"> <a href="listing-details-v1.html" title="Development Team Lead">Development
+                      Team Lead</a> </h6>
+                  <span class="listing-price">2,500$ <span>/Month</span> </span>
+                </div>
+              </div>
+              <!-- Listing End -->
+              <!-- Listing Start -->
+              <div class="listing listing-list">
+                <div class="listing-thumbnail">
+                  <a href="listing-details-v1.html"><img
+                      src="{{ url_for('web.en.static',filename='img/listings/4.jpg') }}" alt="listing"></a>
+                </div>
+                <div class="listing-body">
+                  <h6 class="listing-title"> <a href="listing-details-v1.html"
+                      title="Hiring Online English Teachers">Hiring Online English Teachers</a> </h6>
+                  <span class="listing-price">1,900$ <span>/Month</span> </span>
+                </div>
+              </div>
+              <!-- Listing End -->
+            </div>
+
+          </div>
+
+          <div class="sidebar-widget">
+            <div class="acr-collapse-trigger acr-custom-chevron-wrapper">
+              <h5>Earning Calculator</h5>
+              <div class="acr-custom-chevron">
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="acr-collapsable">
+              <form method="post">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Total Amount" name="total" value="">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Down Payment" name="down-p" value="">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Interest Rate" name="interest" value="">
+                </div>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Loan Term" name="loan-term" value="">
+                </div>
+                <div class="form-group">
+                  <select class="form-control" name="cycle">
+                    <option value="Daily">Daily</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Yearly">Yearly</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn-custom btn-block" name="button">Calculate</button>
+              </form>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <!-- Sidebar End -->
+
+      <!-- Posts Start -->
+      <div class="col-lg-8">
+
+        <!-- Controls Start -->
+        <div class="acr-global-listing-controls">
+          <div class="acr-listing-active-filters">
+            <a href="#">
+              <div class="close-btn close-dark">
+                <span></span>
+                <span></span>
+              </div>
+              Any Status
+            </a>
+            <a href="#">
+              <div class="close-btn close-dark">
+                <span></span>
+                <span></span>
+              </div>
+              West Roxbury, MA
+            </a>
+            <a href="#">
+              <div class="close-btn close-dark">
+                <span></span>
+                <span></span>
+              </div>
+              Part Time
+            </a>
+          </div>
+          <div class="acr-toggle-views">
+            <a href="listing-grid.html" class="active" data-toggle="tooltip" title="Grid"><i
+                class="fas fa-th-large"></i></a>
+            <a href="listing-list.html" data-toggle="tooltip" title="List"><i class="fas fa-th-list"></i></a>
+            <a href="listing-map.html" data-toggle="tooltip" title="Map"><i class="fas fa-map"></i></a>
+          </div>
+        </div>
+        <!-- Controls End -->
+
+        <div class="row">
+
+          <!-- Listing Start -->
+          {% for el in data %}
+          <div class="col-md-6">
+            <div class="listing">
+              <div class="listing-thumbnail">
+                <a href="listing-details-v1.html"><img src="/jobs/{{el.id}}/load_image" alt="listing"></a>
+                <div class="listing-badges">
+                  <span class="listing-badge featured"> <i class="fas fa-star"></i> </span>
+                  <span class="listing-badge pending"> Pending</span>
+                </div>
+                <div class="listing-controls">
+                  <a href="#" class="favorite"><i class="far fa-heart"></i></a>
+                  <a href="#" class="compare"><i class="fas fa-sync-alt"></i></a>
+                </div>
+              </div>
+              <div class="listing-body">
+                <div class="listing-author">
+                  <img src="{{ url_for('web.en.static',filename='img/only-logo.png') }}" alt="author" class="prostar">
+                  <div class="listing-author-body">
+                    <p> <a href="#">Prostar</a> </p>
+                    <span class="listing-date">{{el.post_time}}</span>
+                  </div>
+                  <div class="dropdown options-dropdown">
+                    <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                        class="fas fa-ellipsis-v"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                      <ul>
+                        <li> <a href="tel:+123456789"> <i class="fas fa-phone"></i> Call Agent</a> </li>
+                        <li> <a href="mailto:+123456789"> <i class="fas fa-envelope"></i> Send Message</a> </li>
+                        <li> <a href="/en/jobs/{{el.id}}"> <i class="fas fa-bookmark"></i> Book Tour</a> </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <h5 class="listing-title"> <a href="/en/jobs/{{el.id}}" title="Development Team Lead">{{el.title}}</a>
+                </h5>
+                <span class="listing-price">{{el.salary}} <span>/Month</span> </span>
+                <!-- <p class="listing-text">{{el.description|safe|make_shorter}}</p> -->
+                <div class="acr-listing-icons">
+                  <div class="acr-listing-icon" data-toggle="tooltip" title="Location">
+                    <i class="flaticon-map-pointer"></i>
+                    <span class="acr-listing-icon-value">{{el.location}}</span>
+                  </div>
+                  <div class="acr-listing-icon" data-toggle="tooltip" title="Time">
+                    <i class="flaticon-clock"></i>
+                    <span class="acr-listing-icon-value">3days ago</span>
+                  </div>
+                  <div class="acr-listing-icon" data-toggle="tooltip" title="company">
+                    <i class="flaticon-suitcase"></i>
+                    <span class="acr-listing-icon-value">IT</span>
+                  </div>
+                </div>
+                <div class="listing-gallery-wrapper">
+                  <a href="/en/jobs/{{el.id}}" class="btn-custom btn-sm secondary">View Details</a>
+                  <a href="#" data-toggle="tooltip" title="Gallery" class="listing-gallery"> <i
+                      class="fas fa-camera"></i> </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- Listing End -->
+        </div>
+
+        <!-- Pagination Start -->
+        <!-- <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#"> <i class="fas fa-chevron-left"></i> </a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item active">
+            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#"> <i class="fas fa-chevron-right"></i> </a></li>
+        </ul> -->
+        <!-- Pagination End -->
+
+      </div>
+      <!-- Posts End -->
+
+    </div>
+
+  </div>
+</div>
+<!-- Jobs End -->
+
+{% endblock %}

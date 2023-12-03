@@ -1,0 +1,110 @@
+{% extends 'admin_base.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('admin.static',filename='css/vacancies.css') }}">
+<link rel="stylesheet" href="{{ url_for('admin.static',filename='css/edit_vacancie.css') }}">
+<style>
+    .dropdown-floating-input {
+        position: relative;
+    }
+
+    .dropdown-floating-input .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 0;
+        transform: translate(0, 10px);
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="vacancie-hero">
+    <form method="post" enctype="multipart/form-data" autocomplete="off">
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="poster-img" id="poster" src="" alt="">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Завантажте фото</label>
+                    <input name="img" class="form-control" type="file" id="formFile" onchange="previewFile()">
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="title" placeholder="text">
+                    <label for="floatingInput">Назва</label>
+                </div>
+                <div class="form-floating dropdown mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="location" placeholder="text"
+                        data-bs-toggle="dropdown" value="">
+                    <label for="floatingInput">Місце</label>
+                    <ul class="dropdown-menu">
+                        {% for loc in wloc %}
+                        <li><a class="dropdown-item" onclick="setLoc(this.innerText)">{{loc.location}}</a>
+                        </li>
+                        {% endfor %}
+                        <li><a class="dropdown-item" onclick="addLoc()">Add to the list</a></li>
+                    </ul>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="hourly_rate" placeholder="text">
+                    <label for="floatingInput">Погодинна оплата</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="salary" placeholder="text">
+                    <label for="floatingInput">Заробітня плата</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="schedule" placeholder="text">
+                    <label for="floatingInput">Розклад</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="vac_id" placeholder="text">
+                    <label for="floatingInput">ID Вакансії</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="apply_link" placeholder="text">
+                    <label for="floatingInput">Google Форма для подачі заявки</label>
+                </div>
+            </div>
+        </div>
+        <textarea name="description" id="desc" rows="50" placeholder="Опис вакансії..."></textarea>
+        <button class="btn btn-primary btn-submit" type="submit">Зберегти</button>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+    function previewFile() {
+        var preview = document.querySelector('#poster');
+        var file = document.querySelector('#formFile').files[0];
+        var reader = new FileReader();
+
+        reader.onloadend = function () {
+            preview.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = "";
+        }
+    }
+</script>
+
+<script>
+    function setLoc(text) {
+        document.getElementsByName('location')[0].value = text
+    }
+
+    function addLoc() {
+        const xhr = new XMLHttpRequest();
+        addr = "http://192.168.178.25:5000/admin/lists/add/" + document.getElementsByName('location')[0].value
+        xhr.open("GET", addr);
+        xhr.send();
+    }
+</script>
+{% endblock %}

@@ -59,29 +59,52 @@ def data_contact_read(id):
 
 #================================================================
 
-@web_admin.route('/vacancies/', methods=["GET", "POST"])
+@web_admin.route('/jobs/')
 @login_required
 def data_vacancies():
+    return render_template('vacancies.html', data=Vacancies.query.order_by(Vacancies.id.desc()).all(), user=Admins.query.get(current_user.get_id()))
+
+@web_admin.route('/jobs/add', methods=["GET", "POST"])
+@login_required
+def add_job():
     if request.method == "POST":
         title = request.form['title']
         location = request.form['location']
         hourly_rate = request.form['hourly_rate']
         salary = request.form['salary']
-        vac_id = request.form['vac_id']
         schedule = request.form['schedule']
+        vac_id = request.form['vac_id']
         description = request.form['description']
+        apply_link = request.form['apply_link']
         img = request.files['img']
         binary = img.read()
-        apply_link = request.form['apply_link']
+        if binary is not None: img = binary
+
+        db.session.add(Vacancies(title=title,
+            location=location,
+            hourly_rate=hourly_rate,
+            salary=salary,
+            schedule=schedule,
+            vac_id=vac_id,
+            description=description,
+            apply_link=apply_link,
+            img=img,
+            isAvalible=False
+        ))
+
         try:
-            db.session.add(Vacancies(title = title, location = location, hourly_rate=hourly_rate, salary = salary, schedule=schedule, vac_id = vac_id, description=description, img = binary, apply_link = apply_link))
             db.session.commit()
-            return redirect('/admin/vacancies')
-        except: return "<h1>Error</h1>"
+            flash("Job added")
+            return redirect('/admin/jobs')
+        except:
+            flash("Помилка при збереженні данних. Спробуйте ще раз")
+            return redirect('/admin/jobs')
+    else: return render_template("add_job.html",
+        wloc = WorkLocations.query.all(),
+        user=Admins.query.get(current_user.get_id()
+    ))
 
-    else: return render_template('vacancies.html', data=Vacancies.query.order_by(Vacancies.id.desc()).all(), user=Admins.query.get(current_user.get_id()))
-
-@web_admin.route('/vacancies/<int:id>/delete')
+@web_admin.route('/jobs/<int:id>/delete')
 @login_required
 def data_vacancies_delete(id):
     try:
@@ -91,9 +114,9 @@ def data_vacancies_delete(id):
     except:
         flash(f"Вакансія #{id} не видалена")
     finally:
-        return redirect('/admin/vacancies')
+        return redirect('/admin/jobs')
 
-@web_admin.route('/vacancies/<int:id>/hide')
+@web_admin.route('/jobs/<int:id>/hide')
 @login_required
 def data_vacancies_hide(id):
     if Vacancies.query.get(id).isAvalible == True:
@@ -104,7 +127,7 @@ def data_vacancies_hide(id):
         except:
             flash(f"Вакансія #{id} не прихована")
         finally:
-            return redirect('/admin/vacancies')
+            return redirect('/admin/jobs')
     else:
         try:
             Vacancies.query.get(id).isAvalible = True
@@ -113,15 +136,16 @@ def data_vacancies_hide(id):
         except: 
             flash(f"Вакансія #{id} прихована")
         finally:
-            return redirect('/admin/vacancies')
+            return redirect('/admin/jobs')
 
-@web_admin.route('/vacancies/<int:id>/edit', methods=["GET", "POST"])
+@web_admin.route('/jobs/<int:id>/edit', methods=["GET", "POST"])
 def data_vacancies_edit(id):
     if request.method == "POST":
         Vacancies.query.get(id).title = request.form['title']
         Vacancies.query.get(id).location = request.form['location']
         Vacancies.query.get(id).hourly_rate = request.form['hourly_rate']
         Vacancies.query.get(id).salary = request.form['salary']
+        Vacancies.query.get(id).schedule = request.form['schedule']
         Vacancies.query.get(id).vac_id = request.form['vac_id']
         Vacancies.query.get(id).description = request.form['description']
         Vacancies.query.get(id).apply_link = request.form['apply_link']
@@ -132,10 +156,10 @@ def data_vacancies_edit(id):
         try:
             db.session.commit()
             flash("Вакансія оновлена")
-            return redirect('/admin/vacancies')
+            return redirect('/admin/jobs')
         except:
             flash("Помилка при збереженні данних. Спробуйте ще раз")
-            return redirect('/admin/vacancies')
+            return redirect('/admin/jobs')
 
     else: return render_template('edit_vacancie.html', data=Vacancies.query.get(id), user=Admins.query.get(current_user.get_id()))
 
@@ -163,7 +187,7 @@ def data_admins():
 
         db.session.add(Admins(username=username, password=password, name=name, job_title=job_title, email=email, img=binary))
         db.session.commit()
-        return redirect("/admins")
+        return redirect("/admin/admins")
 
     else: return render_template('admins.html', data=Admins.query.all(), user=Admins.query.get(current_user.get_id()))
 
@@ -199,3 +223,50 @@ def data_emails_delete(id):
         return redirect('/admin/emails')
     except:
         return "<h1>Error</h1"
+    
+#================================================================
+
+@web_admin.route("/lists/", methods=["GET", "POST"])
+@login_required
+def lists():
+    if request.method == "POST":
+        emploc = request.form["emploc"]
+        workloc = request.form["workloc"]
+        category = request.form["category"]
+        specialisation = request.form["specialisation"]
+        specCategory = request.form["specCategory"]
+
+        if emploc != "":
+            db.session.add(EmploymentLocations(location=emploc))
+        if workloc != "":
+            db.session.add(WorkLocations(location=workloc))
+        if category != "":
+            db.session.add(Categories(category=category))
+        if specialisation != "" and specCategory != "":
+            nest=Categories.query.filter(Categories.category==specCategory).first().id
+            db.session.add(Specialisation(specialisation=specialisation, nest=nest))
+        db.session.commit()
+        return redirect("/admin/lists/")
+    else:
+        return render_template("lists.html", emploc=EmploymentLocations.query.all(),
+            workloc=WorkLocations.query.all(),
+            categories=Categories.query.all(),
+            specs = Specialisation.query.all(),
+            user=Admins.query.get(current_user.get_id()))
+    
+@web_admin.route("/lists/<int:id>/delete/<string:table>")
+@login_required
+def delete_lists(id, table):
+    if table == "emploc": db.session.delete(EmploymentLocations.query.get(id))
+    elif table == "workloc": db.session.delete(WorkLocations.query.get(id))
+    elif table == "category": db.session.delete(Categories.query.get(id))
+    elif table == "spec": db.session.delete(Specialisation.query.get(id))
+    else: flash("No changes were made")
+    db.session.commit()
+    return redirect("/admin/lists/")
+
+@web_admin.route("/lists/add/<string:name>")
+@login_required
+def add_lists(name):
+    db.session.add(WorkLocations(location=name))
+    db.session.commit()

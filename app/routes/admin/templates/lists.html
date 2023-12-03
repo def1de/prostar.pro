@@ -1,0 +1,169 @@
+{% extends 'admin_base.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('admin.static',filename='css/vacancies.css') }}">
+<style>
+    .square {
+        width: 500px;
+        height: 500px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="vacancie-hero">
+    <div class="row">
+        <div class="col-md-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Employment Location</th>
+                        <th scope="col">Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for el in emploc %}
+                    <tr>
+                        <th scope="row">{{ el.id }}</th>
+                        <td>{{ el.location }}
+                        </td>
+                        <td>
+                            <div class="edit">
+                                <a class="text-danger hidden-link" href="/admin/lists/{{ el.id }}/delete/emploc"><i
+                                        class='bx bx-trash'></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Work Location</th>
+                        <th scope="col">Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for el in workloc %}
+                    <tr>
+                        <th scope="row">{{ el.id }}</th>
+                        <td>{{ el.location }}</td>
+                        <td>
+                            <div class="edit">
+                                <a class="text-danger hidden-link" href="/admin/lists/{{ el.id }}/delete/workloc"><i
+                                        class='bx bx-trash'></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Categories/Spec</th>
+                        <th scope="col">Дії</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for el in categories %}
+                    <tr>
+                        <th scope="row">{{ el.id }}</th>
+                        <td>{{ el.category }}
+                            <ul>
+                                {% for spec in specs %}
+                                {% if spec.nest == el.id %}
+                                <li>{{spec.specialisation}} <a class="text-danger hidden-link"
+                                        href="/admin/lists/{{spec.id}}/delete/spec"><i class='bx bx-trash'></i></a></li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>
+                            <div class="edit">
+                                <a class="text-danger hidden-link" href="/admin/lists/{{ el.id }}/delete/category"><i
+                                        class='bx bx-trash'></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary btn-add" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class='bx bx-folder-plus' style="font-size: 25px;"></i>
+    </button>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form method="post" enctype="multipart/form-data">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Додати</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <input name="emploc" type="text" class="form-control" id="floatingInput" name="title"
+                            placeholder="text">
+                        <label for="floatingInput">Employment Location</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input name="workloc" type="text" class="form-control" id="floatingInput" name="title"
+                            placeholder="text">
+                        <label for="floatingInput">Work Location</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input name="category" type="text" class="form-control" id="floatingInput" name="title"
+                            placeholder="text">
+                        <label for="floatingInput">Work Category</label>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="form-floating flex-grow-1">
+                            <input name="specialisation" type="text" class="form-control" id="floatingInput"
+                                name="title" placeholder="text">
+                            <label for="floatingInput">Category Specisalisation</label>
+                        </div>
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" id="specCategoryBtn">Choose
+                            Category</button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            {%for el in categories%}
+                            <li><a class="dropdown-item" href="#" onclick="setCategory(this)"
+                                    value="{{el.category}}">{{el.category}}</a>
+                            </li>
+                            {%endfor%}
+                        </ul>
+                    </div>
+                    <p>*Якщо ви не хочете додавати нові поля то залиште їх порожніми</p>
+                    <input type="text" name="specCategory" style="display: none;">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Відмінити</button>
+                    <button type="submit" class="btn btn-primary">Додати</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+    function setCategory(linkCategory) {
+        document.getElementsByName('specCategory')[0].value = linkCategory.innerText
+        document.getElementById('specCategoryBtn').innerText = linkCategory.innerText
+    }
+</script>
+{% endblock %}
