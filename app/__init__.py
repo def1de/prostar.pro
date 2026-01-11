@@ -1,10 +1,10 @@
 from flask import Flask
-from .extentions import db, admin, login
-from .routes.web.router import web
-from .routes.admin.admin_route import web_admin
-from .login_manager import load_user
+from app.extentions import db, admin, login
+from app.routes.web.router import web
+from app.routes.admin.admin_route import web_admin
+from app.login_manager import load_user
 import os
-from .models import *
+from app.models import *
 import click
 
 app = Flask(__name__)
@@ -17,7 +17,7 @@ app.config['SECRET_KEY'] = '0123456789'
 db.init_app(app)
 admin.init_app(app)
 login.init_app(app)
-login.login_view = "admin_panel.log_in"
+login.login_view = "admin_panel.log_in" # type: ignore
 
 @app.cli.command("init-db")
 def init_db():
@@ -27,9 +27,16 @@ def init_db():
         with app.app_context():
             db.create_all()
             # Create the initial admin user
-            admin_user = Admins(username="admin", password="admin", name="Administrator", job_title="Administrator", email="admin@prostar.pro", img=None)
-            db.session.add(admin_user)
-            db.session.commit()
+            if Admins.query.first() is None:
+                admin_user = Admins()
+                admin_user.username = "admin"
+                admin_user.password = "admin"
+                admin_user.name = "Administrator"
+                admin_user.job_title = "Administrator"
+                admin_user.email = "admin@prostar.pro"
+                admin_user.img = None
+                db.session.add(admin_user)
+                db.session.commit()
             click.echo("Database tables created successfully.")
     else:
         click.echo("Database already exists.")

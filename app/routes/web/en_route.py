@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, make_response, abort
-from ...extentions import db
-from ...models import Contact, Vacancies
+from app.extentions import db
+from app.models import Contact, Vacancies
 
 web_en = Blueprint("en", __name__, template_folder="templates_en/", static_folder="static/")
 
@@ -10,7 +10,11 @@ def index_en():
 
 @web_en.route('/jobs/')
 def job_list():
-    return render_template('job-list.html', data=Vacancies.query.order_by(Vacancies.id.desc()).all())
+    return render_template('job-list.html', data=Vacancies.query.
+                           filter(Vacancies.isAvalible==1)
+                           .order_by(Vacancies.id.desc())
+                           .all()
+                           )
 
 @web_en.route('/jobs/<int:id>/')
 def job_single(id):
