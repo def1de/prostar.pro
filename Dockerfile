@@ -13,8 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code into the container
 COPY . .
 
-# Initialize the database before starting the application
-RUN flask init-db
-
 # Specify the command to run on container start
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+CMD ["./entrypoint.sh"]
