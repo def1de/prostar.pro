@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, make_response, flash
 from flask_login import login_required, current_user, login_user, logout_user
 from app.models import *
+from werkzeug.security import check_password_hash, generate_password_hash
 
 web_admin = Blueprint("admin_panel", __name__, template_folder="templates/", static_folder="static/")
 
@@ -23,12 +24,10 @@ def log_in():
     if request.method == "POST":
         username = request.form['username']
         password = request.form['password']
-        for i in Admins.query.all():
-            if username == i.username:
-                if password == i.password:
-                    user = i
-                    login_user(user)
-                    return redirect('/admin/dashboard')
+        user = Admins.query.filter_by(username=username).first()
+        if user is not None and check_password_hash(user.password, password):
+            login_user(user)
+            return redirect('/admin/dashboard')
         return redirect('/admin/login')
     else:
         if current_user.is_authenticated == True:
@@ -170,7 +169,7 @@ def data_vacancies_edit(id):
 def data_admins():
     if request.method == "POST":
         username = request.form['username']
-        password = request.form['password']
+        password = generate_password_hash(request.form['password'], method='scrypt', salt_length=16)
         name = request.form['name']
         job_title = request.form['job_title']
         email = request.form['email']

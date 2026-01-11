@@ -5,7 +5,7 @@ from flask_login import UserMixin
 class Admins(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20))
-    password = db.Column(db.String(20))
+    password = db.Column(db.Text)
     name = db.Column(db.String(255))
     email = db.Column(db.String(255))
     job_title = db.Column(db.String(255))
