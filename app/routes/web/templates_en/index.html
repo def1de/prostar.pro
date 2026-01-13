@@ -203,103 +203,32 @@
         </div>
 
         <div class="row">
+            {% for category in categories %}
             <div class="col-lg-4 col-md-6">
                 <div class="acr-category">
                     <div class="acr-category-thumb">
-                        <div class="category-sec">
-                            <i class="flaticon-work-from-home"></i>
-                        </div>
-                        <a href="#"
-                            ><img src="{{ url_for('web.en.static',filename='img/categories/1.jpg') }}" alt="category"
-                        /></a>
+                        <a href="#"><img src="/categoryimg/{{category.category}}/" alt="category" /></a>
                         <div class="acr-category-body">
-                            <h5><a href="#">Freelancer</a></h5>
-                            <span>90 Jobs</span>
+                            <h5><a href="#">{{category.category}}</a></h5>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
             <div class="col-lg-4 col-md-6">
                 <div class="acr-category">
                     <div class="acr-category-thumb">
-                        <div class="category-sec">
-                            <i class="flaticon-time"></i>
-                        </div>
-                        <a href="#"
-                            ><img src="{{ url_for('web.en.static',filename='img/categories/2.jpg') }}" alt="category"
+                        <a href="/jobs" style="background-color: #478adc"
+                            ><img
+                                src="{{ url_for('web.en.static',filename='img/categories/6.jpg') }}"
+                                alt="category"
+                                style="opacity: 0.1"
                         /></a>
                         <div class="acr-category-body">
-                            <h5><a href="#">Part Time</a></h5>
-                            <span>433 Jobs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="acr-category">
-                    <div class="acr-category-thumb">
-                        <div class="category-sec">
-                            <i class="flaticon-businessman"></i>
-                        </div>
-                        <a href="#"
-                            ><img src="{{ url_for('web.en.static',filename='img/categories/3.jpg') }}" alt="category"
-                        /></a>
-                        <div class="acr-category-body">
-                            <h5><a href="#">Full Time</a></h5>
-                            <span>221 Jobs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="acr-category">
-                    <div class="acr-category-thumb">
-                        <div class="category-sec">
-                            <i class="flaticon-work-from-home"></i>
-                        </div>
-                        <a href="#"
-                            ><img src="{{ url_for('web.en.static',filename='img/categories/4.jpg') }}" alt="category"
-                        /></a>
-                        <div class="acr-category-body">
-                            <h5><a href="#">Work From Home</a></h5>
-                            <span>185 Jobs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="acr-category">
-                    <div class="acr-category-thumb">
-                        <div class="category-sec">
-                            <i class="flaticon-businessman"></i>
-                        </div>
-                        <a href="#"
-                            ><img src="{{ url_for('web.en.static',filename='img/categories/5.jpg') }}" alt="category"
-                        /></a>
-                        <div class="acr-category-body">
-                            <h5><a href="#">Internship</a></h5>
-                            <span>230 Jobs</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="acr-category">
-                    <div class="acr-category-thumb">
-                        <div class="category-sec">
-                            <i class="flaticon-calendar"></i>
-                        </div>
-                        <a href="#"
-                            ><img src="{{ url_for('web.en.static',filename='img/categories/6.jpg') }}" alt="category"
-                        /></a>
-                        <div class="acr-category-body">
-                            <h5><a href="#">Job Website</a></h5>
-                            <span>365 Jobs</span>
+                            <h5>
+                                <a href="/jobs">View More <i class="fas fa-arrow-right"></i></a>
+                            </h5>
                         </div>
                     </div>
                 </div>

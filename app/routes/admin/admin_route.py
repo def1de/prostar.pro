@@ -224,48 +224,49 @@ def data_emails_delete(id):
         return "<h1>Error</h1"
     
 #================================================================
+# Categories
 
-@web_admin.route("/lists/", methods=["GET", "POST"])
+@web_admin.route('/categories/', methods=["GET", "POST"])
 @login_required
-def lists():
+def data_categories():
     if request.method == "POST":
-        emploc = request.form["emploc"]
-        workloc = request.form["workloc"]
-        category = request.form["category"]
-        specialisation = request.form["specialisation"]
-        specCategory = request.form["specCategory"]
+        category_name = (request.form.get('category') or "").strip()
+        img_file = request.files.get('image')
 
-        if emploc != "":
-            db.session.add(EmploymentLocations(location=emploc))
-        if workloc != "":
-            db.session.add(WorkLocations(location=workloc))
-        if category != "":
-            db.session.add(Categories(category=category))
-        if specialisation != "" and specCategory != "":
-            nest=Categories.query.filter(Categories.category==specCategory).first().id
-            db.session.add(Specialisation(specialisation=specialisation, nest=nest))
-        db.session.commit()
-        return redirect("/admin/lists/")
-    else:
-        return render_template("lists.html", emploc=EmploymentLocations.query.all(),
-            workloc=WorkLocations.query.all(),
-            categories=Categories.query.all(),
-            specs = Specialisation.query.all(),
-            user=Admins.query.get(current_user.get_id()))
-    
-@web_admin.route("/lists/<int:id>/delete/<string:table>")
-@login_required
-def delete_lists(id, table):
-    if table == "emploc": db.session.delete(EmploymentLocations.query.get(id))
-    elif table == "workloc": db.session.delete(WorkLocations.query.get(id))
-    elif table == "category": db.session.delete(Categories.query.get(id))
-    elif table == "spec": db.session.delete(Specialisation.query.get(id))
-    else: flash("No changes were made")
-    db.session.commit()
-    return redirect("/admin/lists/")
+        if not category_name:
+            flash("Вкажіть назву категорії")
+            return redirect('/admin/categories/')
 
-@web_admin.route("/lists/add/<string:name>")
+        if Categories.query.get(category_name) is not None:
+            flash("Категорія з такою назвою вже існує")
+            return redirect('/admin/categories/')
+
+        binary = None
+        if img_file and getattr(img_file, "filename", ""):
+            binary = img_file.read() or None
+
+        db.session.add(Categories(category=category_name, image=binary))
+        try:
+            db.session.commit()
+            flash("Категорію додано")
+        except:
+            db.session.rollback()
+            flash("Помилка при збереженні данних. Спробуйте ще раз")
+
+        return redirect('/admin/categories/')
+
+    return render_template(
+        'categories.html',
+        data=Categories.query.order_by(Categories.category.asc()).all(),
+        user=Admins.query.get(current_user.get_id())
+    )
+
+@web_admin.route('/load_category_image/<string:category>')
 @login_required
-def add_lists(name):
-    db.session.add(WorkLocations(location=name))
-    db.session.commit()
+def load_category_image(category):
+    cat = Categories.query.get_or_404(category)
+    if not cat.image:
+        return ("", 204)
+    resp = make_response(cat.image)
+    resp.headers['Content-Type'] = 'image/png'
+    return resp

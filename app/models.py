@@ -40,29 +40,11 @@ class Emails(db.Model):
     email = db.Column(db.String(255), default=None)
 
 class EmploymentLocations(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    location = db.Column(db.String(255), default=None, nullable=False)
+    location = db.Column(db.String(255), primary_key=True, nullable=False)
 
 class WorkLocations(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    location = db.Column(db.String(255), default=None, nullable=False)
+    location = db.Column(db.String(255), primary_key=True, nullable=False)
 
 class Categories(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    category = db.Column(db.String(255), default=None, nullable=False)
-
-class Specialisation(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    specialisation = db.Column(db.String(255), default=None, nullable=False)
-    nest = db.Column(db.Integer, nullable=False)
-
-# class Offers(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.Text, default="-")
-#     job_type = db.Column(db.String(255), default="-")
-#     job_offer = db.Column(db.Integer, default=0)
-#     period = db.Column(db.String(255))
-#     accomodation = db.Column(db.String(255))
-#     video = db.Column(db.String(255))
-#     img = db.Column(db.LargeBinary, default=None)
-#     address = db.Column(db.String(255))
+    category = db.Column(db.String(255), primary_key=True, nullable=False)
+    image = db.Column(db.LargeBinary, default=None)

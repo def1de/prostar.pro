@@ -1,0 +1,85 @@
+{% extends "admin_base.html" %} {% block body %}
+<!-- ...existing template content (form + table) stays the same... -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mb-3">Categories</h3>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <strong>Додати категорію</strong>
+                </div>
+                <div class="card-body">
+                    <form action="/admin/categories/" method="post" enctype="multipart/form-data">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Назва</label>
+                                <input
+                                    class="form-control"
+                                    name="category"
+                                    placeholder="Наприклад: Engineering"
+                                    required
+                                />
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Зображення (png/jpg)</label>
+                                <input class="form-control" type="file" name="image" accept="image/*" required />
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Додати</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <strong>Всі категорії</strong>
+                </div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-striped mb-0">
+                            <thead>
+                                <tr>
+                                    <th style="width: 90px">Image</th>
+                                    <th>Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for c in data %}
+                                <tr>
+                                    <td>
+                                        {% if c.image %}
+                                        <img
+                                            src="/admin/load_category_image/{{ c.category }}"
+                                            alt="{{ c.category }}"
+                                            style="width: 64px; height: 64px; object-fit: cover; border-radius: 8px"
+                                        />
+                                        {% else %}
+                                        <div
+                                            style="width: 64px; height: 64px; background: #eee; border-radius: 8px"
+                                        ></div>
+                                        {% endif %}
+                                    </td>
+                                    <td class="align-middle">
+                                        <strong>{{ c.category }}</strong>
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td colspan="2" class="p-3">Немає жодної категорії</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ...existing base/layout code... -->
+{% endblock %}

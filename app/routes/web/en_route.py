@@ -1,12 +1,21 @@
 from flask import Blueprint, render_template, request, redirect, make_response, abort
 from app.extentions import db
-from app.models import Contact, Vacancies
+from app.models import *
 
 web_en = Blueprint("en", __name__, template_folder="templates_en/", static_folder="static/")
 
 @web_en.route("/")
 def index_en():
-    return render_template("index.html", jobs=Vacancies.query.order_by(Vacancies.id.desc()).limit(3))
+    return render_template("index.html", jobs=Vacancies.query.order_by(Vacancies.id.desc()).limit(3), categories=Categories.query.limit(5))
+
+@web_en.route("/categoryimg/<string:category>/")
+def category_image(category):
+    cat = Categories.query.get(category)
+    if not cat or not cat.image:
+        abort(404)
+    h = make_response(cat.image)
+    h.headers['Content-Type'] = 'img/png'
+    return h
 
 @web_en.route('/jobs/')
 def job_list():
