@@ -3,4 +3,8 @@ venv/
 instance/
 data/
 token.txt
+compose.yml
+compose.dev.yml
 .flaskenv
+.env
+postgres_data

@@ -1,11 +1,15 @@
 #!/usr/bin/env sh
 set -e
 
-# Ensure Flask can find the app
-export FLASK_APP=app
+echo "⏳ Waiting for PostgreSQL..."
+until PGPASSWORD=$POSTGRES_PASSWORD psql -h postgres -U $POSTGRES_USER -d $POSTGRES_DB -c '\q' 2>/dev/null; do
+  echo "  PostgreSQL is unavailable - sleeping"
+  sleep 2
+done
+echo "✓ PostgreSQL is ready"
 
-# Initialize DB
-flask init-db || true
+echo "🗄️  Initializing database..."
+flask init-db || echo "✓ Database already initialized"
 
-# Start the server
-exec gunicorn --bind 0.0.0.0:5000 app:app
+echo "🚀 Starting application with Gunicorn..."
+exec gunicorn --bind 0.0.0.0:5000 --workers 4 --timeout 120 app:app

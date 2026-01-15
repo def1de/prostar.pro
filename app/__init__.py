@@ -23,7 +23,7 @@ login.login_view = "admin_panel.log_in" # type: ignore
 @app.cli.command("init-db")
 def init_db():
     """Initialize the database."""
-    db_path = app.config['SQLALCHEMY_DATABASE_URI'].replace('sqlite:///', '')
+    db_path = app.config['SQLALCHEMY_DATABASE_URI'].replace('postgresql://', '')
     if not os.path.exists(db_path):
         with app.app_context():
             db.create_all()

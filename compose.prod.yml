@@ -1,0 +1,38 @@
+services:
+    postgres:
+        image: postgres
+        environment:
+            POSTGRES_DB: ${POSTGRES_DB}
+            POSTGRES_USER: ${POSTGRES_USER}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        volumes:
+            - postgres_data:/var/lib/postgresql
+        networks:
+            - prostar_net
+        restart: unless-stopped
+        healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+            interval: 10s
+            timeout: 5s
+            retries: 10
+            start_period: 30s
+
+    web:
+        build: .
+        ports:
+            - "5000:5000"
+        networks:
+            - prostar_net
+        env_file:
+            - .env
+        restart: unless-stopped
+        depends_on:
+            postgres:
+                condition: service_healthy
+
+networks:
+    prostar_net:
+        driver: bridge
+
+volumes:
+    postgres_data:
