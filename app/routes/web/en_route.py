@@ -20,7 +20,7 @@ def category_image(category):
 @web_en.route('/jobs/')
 def job_list():
     return render_template('job-list.html', data=Vacancies.query.
-                           filter(Vacancies.isAvalible==1)
+                           filter(Vacancies.isAvalible==True)
                            .order_by(Vacancies.id.desc())
                            .all()
                            )
